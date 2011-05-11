@@ -111,9 +111,24 @@
 		}
 	}
 	
+	// for Longman Dict Of Contemporary English
+	function lookupLdoce(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			if(tabId == null) {
+				openTab("loading.html#http://www.ldoceonline.com/search/?q="+keyword);
+			} else {
+				chrome.tabs.update(tabId, {url: "http://www.ldoceonline.com/search/?q="+keyword, selected:true});
+			}
+		}
+	}
+	
 	// add to context menu, one by one
 	title = "Cambridge Advanced Learner's";
 	chrome.contextMenus.create({"title": title, "contexts":[context], "onclick": lookupCald});
+
+	title = "Longman Contemporary English";
+	chrome.contextMenus.create({"title": title, "contexts":[context], "onclick": lookupLdoce});
 
 	title = "thefreedictionary.com";
 	chrome.contextMenus.create({"title": title, "contexts":[context], "onclick": lookupFreeDict});
