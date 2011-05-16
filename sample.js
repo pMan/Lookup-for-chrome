@@ -68,9 +68,9 @@
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
 			if (tabId == null) {
-				openTab("loading.html#http://www.google.com/search?q=define:"+keyword);
+				openTab("loading.html#http://www.google.com/search?tbs=dfn:1&q="+keyword);
 			} else {
-				chrome.tabs.update(tabId, {url: "http://www.google.com/search?q=define:"+keyword, selected:true});
+				chrome.tabs.update(tabId, {url: "http://www.google.com/search?tbs=dfn:1&q="+keyword, selected:true});
 			}
 		}
 	}
