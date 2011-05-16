@@ -3,13 +3,15 @@
 0.2
 	- just testing
 0.3
-	- added analytics account.
+	- added analytics account
 0.4
 	- changeLog.txt added
-	- some comments and plain text changes.
+	- some comments and plain text changes
 0.5
 	- removed analytics code, I was wrong!
 	- longest word shows in alert when huge selection is made
 0.6
+	- Added Longman contemporary English dictionary
+0.7
 	- Updated google definitions URL after google's updates on definitions search.
 	
