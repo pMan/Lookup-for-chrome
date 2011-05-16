@@ -10,3 +10,6 @@
 0.5
 	- removed analytics code, I was wrong!
 	- longest word shows in alert when huge selection is made
+0.6
+	- Updated google definitions URL after google's updates on definitions search.
+	
