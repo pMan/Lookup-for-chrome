@@ -1,7 +1,7 @@
 {
   "name": "Lookup Definitions Online",
   "description": "Look up definitions from free online sources",
-  "version": "0.5",
+  "version": "0.6",
   "minimum_chrome_version": "6",
   "icons": { "48": "mybug.gif" },
   "permissions": ["contextMenus","tabs"],
