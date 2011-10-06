@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title>Customize lookup</title>
+	<link rel="stylesheet" href="/html/lookup.css" type="text/css">
+	<script src="/js/jquery.min.js" type="text/javascript"></script>
+	<script src="/js/helpers.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$('document').ready(function($) {
+			$('#message').html(esc).show();
+			$('#container-dics').html('');
+			
+			for (var i in dicts) {
+				title = dicts[i].title;
+				$('#container-dics').append('<input type="checkbox" name="all-dicts" id="cb'+i+'" value="'+(++i)+'" /><label for="cb'+(i-1)+'">'+title+'</label><br />');
+			}
+			
+			$('.save').click(function(e) {
+				e.preventDefault();
+				$('#message').stop().fadeTo(1,1);
+				saveDicts();
+			});
+			
+			$(document).keyup(function(e) {
+				if (e.keyCode == 27) { // Esc
+					window.close();
+				}
+			});
+		});
+	</script>
+</head>
+<body onload="restore()">
+	<div id="wrapper">
+		<h1>Customize Lookup.</h1>
+		<div id="container">
+			<h4>Enable/Disable Dictionaries</h4>
+			<hr/>
+			<div id="container-dics">please wait...</div>
+			<hr/>
+			<input type="checkbox" id="one-tab"><label for="one-tab">Use only one tab for lookup</label></input><br/>
+			<span class="lookup-tab"><i>Otherwise same tab will be focused and updated.</i></span><br/>
+			<a class="save" href="#"/>Save</a>
+		</div>
+		<div id="message" class="success"></div>
+	</div>
+</body>
+</html>

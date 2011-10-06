@@ -1,0 +1,100 @@
+/*
+Please see readme.txt with this bundle.
+author: Prasad Cholakkottil
+*/
+#wrapper {
+	margin:auto;
+}
+
+div > div{
+	font-family: Tahoma;
+}
+
+h1 {
+	width:280px;
+	color: #ADADAD;
+	margin:20px auto 10px;
+	border: 0px solid gray;
+}
+
+h4 {
+	width:100%;
+	color: #444444;
+	float: left;
+	margin:20px auto 10px;
+}
+
+hr {
+	margin-bottom: 10px;
+}
+
+#container {
+	width: 400px;
+	border: 1px solid gray;
+	margin: auto;
+	padding: 0 20px 20px;
+	font-family: Tahoma;
+	font-size: 14px;
+	color: #454545;
+	line-height: 24px;
+	-webkit-border-radius:12px;
+	-webkit-box-shadow:3px 0px 25px #848484,0px 3px 25px #202020;
+}
+
+#container input {
+	font-family: Tahoma;
+	margin-top: 12px;
+}
+
+#container-dics {
+	margin-bottom: 10px;
+}
+
+.save, .save:hover, .save:active {
+	color: #444444;
+	border: 0px solid gray;
+	width: 80px;
+	height: 30px;
+	background-color: #DEDEDE;
+	margin-left: 310px;
+	margin-top: 20px;
+	margin-bottom: 100px;
+	padding: 10px 24px;
+	text-decoration: none;
+	-webkit-border-radius:15px;
+	-webkit-box-shadow:0px 2px 15px #FFFFFF inset, 2px 1px 6px #727272;
+}
+
+.save:hover {
+	border: 1px solid gray;
+	-webkit-box-shadow: 2px 2px 10px #FFFFFF inset;
+}
+
+.save:active {
+	border: 1px solid gray;
+	-webkit-box-shadow:0px 2px 15px #FFFFFF inset, 0px 0px 3px #848484;
+}
+
+#message {
+	width: 400px;
+	padding: 10px;
+	margin: 10px auto;
+	height: auto;
+	font-weight: bold;
+	text-align: center;
+	display: none;
+}
+
+.success {
+	color: #848484;
+}
+
+.error {
+	color: #FF2323;
+}
+
+.lookup-tab {
+	padding-left:24px;
+	font-size:90%;
+	color:#828282;
+}
