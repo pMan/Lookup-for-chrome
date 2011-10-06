@@ -1,9 +1,18 @@
 {
-  "name": "Lookup Definitions Online",
-  "description": "Look up definitions from free online sources",
-  "version": "0.7",
-  "minimum_chrome_version": "6",
-  "icons": { "48": "mybug.gif" },
-  "permissions": ["contextMenus","tabs"],
-  "background_page": "background.html"
+	"background_page": "/html/background.html",
+	"description": "Look up definitions from free online sources",
+	"icons": {
+	  "48": "/images/mybug.gif"
+	},
+	"key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDUJCCD+sQ5eRjgcnI4FIbxImQimFW1GrbH0ibY+GfcWnsIRjO5oWnK91NFNH0BW7EnfuXt9W3neo/BhIfMurQ7/Y/tJB4sQoGUc41t2zEQULeKMvKxBKe2MyM3Z0RgPtqWWtXLGBg9xySN/jmTSNPdjBEwt8rVypNDh5fRN+rAEwIDAQAB",
+	"minimum_chrome_version": "6",
+	"name": "Lookup Definitions Online",
+	"permissions": [ "contextMenus", "tabs" ],
+	"options_page": "/html/options.html",
+	"update_url": "http://clients2.google.com/service/update2/crx",
+	"version": "0.8",
+	"content_scripts": [{
+		"js": ["/js/helpers.js", "/js/content-script.js"],
+		"matches": [ "http://*/*", "https://*/*" ]
+	}]
 }
