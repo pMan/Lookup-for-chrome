@@ -1,6 +1,6 @@
 Lookup!
 
-Copyright (c) 2010 Prasad Cholakkottil aka pMan
+Copyright (c) 2011 Prasad Cholakkottil aka pMan
 
 Use of this source code is governed by GNU General Public License - http://www.gnu.org/licenses/gpl.html
 
