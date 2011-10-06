@@ -13,5 +13,7 @@
 0.6
 	- Added Longman contemporary English dictionary
 0.7
-	- Updated google definitions URL after google's updates on definitions search.
-	
+	- Updated google definitions URL after google's updates on definitions search
+0.8
+	- Added customize option for users to select the dictionaries on their choice
+	- An option to choose if every lookup should open a new tab
