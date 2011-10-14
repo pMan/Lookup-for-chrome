@@ -4,11 +4,10 @@
 	"icons": {
 	  "48": "/images/mybug.gif"
 	},
-	"key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDUJCCD+sQ5eRjgcnI4FIbxImQimFW1GrbH0ibY+GfcWnsIRjO5oWnK91NFNH0BW7EnfuXt9W3neo/BhIfMurQ7/Y/tJB4sQoGUc41t2zEQULeKMvKxBKe2MyM3Z0RgPtqWWtXLGBg9xySN/jmTSNPdjBEwt8rVypNDh5fRN+rAEwIDAQAB",
 	"minimum_chrome_version": "6",
 	"name": "Lookup Definitions Online",
 	"permissions": [ "contextMenus", "tabs" ],
 	"options_page": "/html/options.html",
 	"update_url": "http://clients2.google.com/service/update2/crx",
-	"version": "0.9"
+	"version": "1.0"
 }
