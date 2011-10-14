@@ -17,3 +17,7 @@
 0.8
 	- Added customize option for users to select the dictionaries on their choice
 	- An option to choose if every lookup should open a new tab
+0.9
+	- removing manifest entries for content scripts
+1.0
+	- Added two new entries - Thesaurus.com and Merriam Webster Thesaurus
