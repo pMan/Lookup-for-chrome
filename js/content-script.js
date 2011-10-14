@@ -100,6 +100,22 @@ author: Prasad Cholakkottil */
 		}
 	}
 	
+// for Merriam webster thesaurus
+	function lookupMerriamWebsterT(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			openTab("/html/loading.html#http://www.merriam-webster.com/thesaurus/"+keyword);
+		}
+	}
+	
+// for Thesaurus.com
+	function lookupThesaurus(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			openTab("/html/loading.html#http://thesaurus.com/browse/"+keyword);
+		}
+	}
+	
 // customize page
 	function showOptions(info, tab) {
 		openTab('/html/options.html');

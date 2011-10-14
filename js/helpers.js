@@ -37,6 +37,16 @@ var dicts = [
 		url	: "http://en.wiktionary.org/wiki/"
 	},
 	{ // 7
+		func: "Thesaurus",
+		title: "Thesaurus",
+		url	: "http://thesaurus.com/browse/"
+	},
+	{ // 8
+		func: "MerriamWebsterT",
+		title: "Merriam Webster Thesaurus",
+		url	: "http://www.merriam-webster.com/thesaurus/"
+	},
+	{ // 9
 		func: "Definition",
 		title: "Google definitions",
 		url	: "http://www.google.com/search?tbs=dfn:1&q="
