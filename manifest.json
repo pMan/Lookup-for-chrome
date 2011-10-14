@@ -4,7 +4,7 @@
 	"icons": {
 	  "48": "/images/mybug.gif"
 	},
-	"minimum_chrome_version": "6",
+	"minimum_chrome_version": "8",
 	"name": "Lookup Definitions Online",
 	"permissions": [ "contextMenus", "tabs" ],
 	"options_page": "/html/options.html",
