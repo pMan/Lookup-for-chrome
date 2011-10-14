@@ -10,9 +10,5 @@
 	"permissions": [ "contextMenus", "tabs" ],
 	"options_page": "/html/options.html",
 	"update_url": "http://clients2.google.com/service/update2/crx",
-	"version": "0.8",
-	"content_scripts": [{
-		"js": ["/js/helpers.js", "/js/content-script.js"],
-		"matches": [ "http://*/*", "https://*/*" ]
-	}]
+	"version": "0.9"
 }
