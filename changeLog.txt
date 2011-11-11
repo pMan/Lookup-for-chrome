@@ -21,3 +21,7 @@
 	- removing manifest entries for content scripts
 1.0
 	- Added two new entries - Thesaurus.com and Merriam Webster Thesaurus
+1.0.1
+	- bug fixed! Listener on closing tab.
+1.0.2
+	- Oxford Advanced Learner's Dictionary added.
