@@ -1,8 +1,9 @@
-/*
-Please see readme.txt with this bundle.
-author: Prasad Cholakkottil */
+/*********************************************************************************
+	Please see readme.txt with this bundle.
+	author: Prasad Cholakkottil aka pMan
+**********************************************************************************/
 
-// walk-through function for stringify, sanitize it
+	// walk-through function for stringify, sanitize it
 	function validate(key, value) {
 		if (typeof value != 'object' && typeof value != 'undefined') {
 			return String(value);
@@ -10,7 +11,7 @@ author: Prasad Cholakkottil */
 		return false;
 	}
 	
-// filter keyword, this can be object
+	// filter keyword, this can be object
 	function validateString(string) {
 		keywd = JSON.parse(JSON.stringify(string, validate));
 		if( keywd.length > 45 ) {
@@ -20,31 +21,31 @@ author: Prasad Cholakkottil */
 		return keywd;
 	}
 
-// get tab id of lookup tab
+	// get tab id of lookup tab
 	function getTabId(newTab) {
 		if(tabId == null || onlyOneTab === false) {
 			tabId = Number(newTab.id);
 		}
 	}
 	
-// called when tab closed event triggered
+	// called when tab closed event triggered
 	function tabClosed(tab) {
 		tabId = null;
 	}
 	
-// Open a new tab for lookup
+	// Open a new tab for lookup
 	function openTab(tabUrl) {
 		if (tabId == null || onlyOneTab == false) {
 			chrome.tabs.create({url: tabUrl, selected:true}, getTabId);
 		} else {
 			if (onlyOneTab == true) {
 				chrome.tabs.update(tabId, {url: tabUrl, selected:true});
-				chrome.tabs.onRemoved.addListener(tabClosed);
 			}
 		}
+		chrome.tabs.onRemoved.addListener(tabClosed);
 	}
 	
-// for Cambridge dictionary
+	// for Cambridge dictionary
 	function lookupCald(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
@@ -52,7 +53,7 @@ author: Prasad Cholakkottil */
 		}
 	}
 
-// for www.freedictionary.com
+	// for www.freedictionary.com
 	function lookupFreeDict(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
@@ -60,7 +61,7 @@ author: Prasad Cholakkottil */
 		}
 	}
 
-// for Google definitions
+	// for Google definitions
 	function lookupDefinition(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
@@ -68,7 +69,7 @@ author: Prasad Cholakkottil */
 		}
 	}
 
-// for Urban dictionary
+	// for Urban dictionary
 	function lookupUrbanDict(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
@@ -76,7 +77,7 @@ author: Prasad Cholakkottil */
 		}
 	}
 
-// for Wiktionary
+	// for Wiktionary
 	function lookupWiktionary(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
@@ -84,7 +85,7 @@ author: Prasad Cholakkottil */
 		}
 	}
 
-// for Merriam webster
+	// for Merriam webster
 	function lookupMerriamWebster(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
@@ -92,7 +93,7 @@ author: Prasad Cholakkottil */
 		}
 	}
 	
-// for Longman Dict Of Contemporary English
+	// for Longman Dict Of Contemporary English
 	function lookupLdoce(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
@@ -100,7 +101,7 @@ author: Prasad Cholakkottil */
 		}
 	}
 	
-// for Merriam webster thesaurus
+	// for Merriam webster thesaurus
 	function lookupMerriamWebsterT(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
@@ -108,20 +109,28 @@ author: Prasad Cholakkottil */
 		}
 	}
 	
-// for Thesaurus.com
+	// for Thesaurus.com
 	function lookupThesaurus(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
 			openTab("/html/loading.html#http://thesaurus.com/browse/"+keyword);
 		}
 	}
+
+	// for Oxford Advanced Learners Dictionary
+	function lookupOALD(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			openTab("/html/loading.html#http://www.oxfordadvancedlearnersdictionary.com/search/?q="+keyword);
+		}
+	}
 	
-// customize page
+	// customize page
 	function showOptions(info, tab) {
 		openTab('/html/options.html');
 	}
 
-// initialize	
+	// initialize	
 	var tabId = null;
 	var keywd = null;
 	var context = "selection";
