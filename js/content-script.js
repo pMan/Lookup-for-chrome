@@ -147,5 +147,5 @@
 	}
 	
 	// a separator line and customize item
-	chrome.contextMenus.create({"contexts":[context], "type": "separator"});
-	chrome.contextMenus.create({"title": "Customize Lookup...", "contexts":[context], "onclick": showOptions});
+	chrome.contextMenus.create({"contexts":[context, "page"], "type": "separator"});
+	chrome.contextMenus.create({"title": "Customize Lookup...", "contexts":[context, "page"], "onclick": showOptions});
