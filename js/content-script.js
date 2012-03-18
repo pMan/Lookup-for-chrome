@@ -30,7 +30,11 @@
 	
 	// called when tab closed event triggered
 	function tabClosed(tab) {
-		tabId = null;
+		var cur_tab_id = JSON.parse(JSON.stringify(tab));
+		if(cur_tab_id == tabId) {
+			tabId = null;
+		}
+		return;
 	}
 	
 	// Open a new tab for lookup
@@ -127,13 +131,14 @@
 	
 	// customize page
 	function showOptions(info, tab) {
-		openTab('/html/options.html');
+		chrome.tabs.create({url: '/html/options.html', selected:true});
 	}
 
 	// initialize	
 	var tabId = null;
 	var keywd = null;
-	var context = "selection";
+	var selCxt = "selection";
+	var pageCxt = "page";
 	var title = "";
 	var onlyOneTab = lookupInOnlyOneTab();
 	
@@ -143,9 +148,9 @@
 	for (var i in dics) {				// add them one by one.
 		title = dics[i].title;
 		func = eval("lookup" + dics[i].func);
-		chrome.contextMenus.create({"title": title, "contexts":[context], "onclick": func});
+		chrome.contextMenus.create({"title": title, "contexts":[selCxt], "onclick": func});
 	}
 	
 	// a separator line and customize item
-	chrome.contextMenus.create({"contexts":[context, "page"], "type": "separator"});
-	chrome.contextMenus.create({"title": "Customize Lookup...", "contexts":[context, "page"], "onclick": showOptions});
+	chrome.contextMenus.create({"contexts":[selCxt], "type": "separator"});
+	chrome.contextMenus.create({"title": "Lookup Preferences", "contexts":[selCxt, pageCxt], "onclick": showOptions});
