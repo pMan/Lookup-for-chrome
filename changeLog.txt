@@ -24,4 +24,7 @@
 1.0.1
 	- bug fixed! Listener on closing tab.
 1.0.2
-	- Oxford Advanced Learner's Dictionary added.
+	- Oxford Advanced Learner's Dictionary added
+1.0.3
+	- TabClose event bug - fixed
+	- Customize option context modified
