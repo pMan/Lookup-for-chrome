@@ -15,4 +15,3 @@
 		"default_title": "Google Mail",      	// optional; shown in tooltip
 		"default_popup": "/html/options.html"	// optional
 	}
-}
