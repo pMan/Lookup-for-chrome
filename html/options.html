@@ -31,14 +31,17 @@
 </head>
 <body onload="restore()">
 	<div id="wrapper">
-		<h1>Customize Lookup.</h1>
 		<div id="container">
 			<h4>Enable/Disable Dictionaries</h4>
-			<hr/>
+			
 			<div id="container-dics">please wait...</div>
-			<hr/>
+			
 			<input type="checkbox" id="one-tab"><label for="one-tab">Use only one tab for lookup</label></input><br/>
-			<span class="lookup-tab"><i>if enabled, same tab will be focused and updated.</i></span><br/>
+			<span class="lookup-tab"><i>if checked, same tab will be focused and updated.</i></span><br/>
+			
+			<input type="checkbox" id="enabled"><label for="enabled">Lookup is enabled</label></input><br/>
+			<span class="lookup-tab"><i>if unchecked, Lookup is removed from context menu.</i></span><br/>
+			
 			<a class="save" href="#"/>Save</a>
 		</div>
 		<div id="message" class="success"></div>
