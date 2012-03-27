@@ -131,7 +131,7 @@
 	
 	// customize page
 	function showOptions(info, tab) {
-		chrome.tabs.create({url: '/html/options.html', selected:true});
+		//chrome.tabs.create({url: '/html/options.html', selected:true});
 	}
 
 	// initialize	
@@ -141,16 +141,16 @@
 	var pageCxt = "page";
 	var title = "";
 	var onlyOneTab = lookupInOnlyOneTab();
+	var enabled = isEnabled();
+
+	chrome.contextMenus.removeAll();	// clear all
 	
-	// adding context menu items from dics (JSON) that stores all available dicts
-	chrome.contextMenus.removeAll();	// clear all,
-	dics = getEnabledDicts('menu');		// get all enabled dictionaries and
-	for (var i in dics) {				// add them one by one.
-		title = dics[i].title;
-		func = eval("lookup" + dics[i].func);
-		chrome.contextMenus.create({"title": title, "contexts":[selCxt], "onclick": func});
+	if (enabled == true) {
+		// adding context menu items from dics (JSON) that stores all available dicts
+		dics = getEnabledDicts('menu');		// get all enabled dictionaries and
+		for (var i in dics) {				// add them one by one.
+			title = dics[i].title;
+			func = eval("lookup" + dics[i].func);
+			chrome.contextMenus.create({"title": title, "contexts":[selCxt], "onclick": func});
+		}
 	}
-	
-	// a separator line and customize item
-	chrome.contextMenus.create({"contexts":[selCxt], "type": "separator"});
-	chrome.contextMenus.create({"title": "Lookup Preferences", "contexts":[selCxt, pageCxt], "onclick": showOptions});
