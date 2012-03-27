@@ -72,17 +72,26 @@ var esc = '<div class="lookup-tab">Press Esc Key to exit...</div>';
 		}
 		
 		// save all enabled dictionaries
-		var enabled = [];
+		var enabledDics = [];
 		$('#container > #container-dics :checked').each(function() {
-			enabled.push($(this).val());
+			enabledDics.push($(this).val());
 		});
-		localStorage["enabled"] = enabled;
+		localStorage["enabledDics"] = enabledDics;
 		
 		// save only one tab or multiple tabs for lookup
 		if ($('#one-tab').is(':checked')) {
 			localStorage["one-tab"] = true;
 		} else {
 			localStorage["one-tab"] = false;
+		}
+		
+		// save enabled/disabled
+		if ($('#enabled').is(':checked')) {
+			localStorage["enabled"] = true;
+			chrome.browserAction.setIcon({path:"images/mybug.gif"});
+		} else {
+			localStorage["enabled"] = false;
+			chrome.browserAction.setIcon({path:"images/mybug-dim.gif"});
 		}
 		
 		$('#message').html('Saved!' + esc).attr('class','success').show().fadeOut(4000);
@@ -94,9 +103,9 @@ var esc = '<div class="lookup-tab">Press Esc Key to exit...</div>';
 
 	// Return all enabled dictionaries.
 	function getEnabledDicts(flag) {
-		var enabled = localStorage["enabled"];
-		if (enabled != undefined && enabled != null ) {
-			var dics = enabled.split(','); // private
+		var enabledDics = localStorage["enabledDics"];
+		if (enabledDics != undefined && enabledDics != null ) {
+			var dics = enabledDics.split(','); // private
 		} else {
 			var dics = [1,7,9,10]; // for the first time, after installation
 		}
@@ -116,6 +125,12 @@ var esc = '<div class="lookup-tab">Press Esc Key to exit...</div>';
 		return tab == "true" || tab == undefined;
 	}
 
+	// return truth value, true if enabled
+	function isEnabled() {
+		var enabled = localStorage["enabled"];
+		return enabled == "true" || enabled == undefined; // true, if enabled
+	}
+	
 	// to populate data in options page
 	function restore() {
 		ds = getEnabledDicts("option");
@@ -125,5 +140,10 @@ var esc = '<div class="lookup-tab">Press Esc Key to exit...</div>';
 		var onlyOneTab = lookupInOnlyOneTab();
 		if (onlyOneTab) {
 			$('#one-tab').attr('checked','checked');
+		}
+		
+		var enabled = isEnabled();
+		if (enabled) {
+			$('#enabled').attr('checked','checked');
 		}
 	}
