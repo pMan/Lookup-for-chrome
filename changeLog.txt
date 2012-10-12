@@ -31,3 +31,6 @@
 1.1
 	- Using Browser Action, so customize option from context menu removed
 	- added temporarily disable feature
+1.2
+	- added a feature to drag-n-reorder dictionaries on customize window
+	- manifest updated to version 2
