@@ -34,3 +34,5 @@
 1.2
 	- added a feature to drag-n-reorder dictionaries on customize window
 	- manifest updated to version 2
+1.2.1
+	- bug fix: CALD was not loading - fixed.
