@@ -1,17 +1,21 @@
 {
-	"background_page": "/html/background.html",
-	"description": "Look up definitions from free online sources",
+	"name": "Lookup Definitions Online",
+	"version": "1.2",
+	"manifest_version": 2,
+	
+	"background": { "page" : "/html/background.html" },
+	"description": "Look up definitions from free online sources.",
 	"icons": {
 	  "48": "/images/mybug.gif"
 	},
 	"minimum_chrome_version": "8",
-	"name": "Lookup Definitions Online",
 	"permissions": [ "contextMenus", "tabs" ],
 	"options_page": "/html/options.html",
 	"update_url": "http://clients2.google.com/service/update2/crx",
-	"version": "1.1",
+	
 	"browser_action": {
-		"default_icon": "images/mybug.gif", 	// optional
-		"default_title": "Google Mail",      	// optional; shown in tooltip
-		"default_popup": "/html/options.html"	// optional
+		"default_icon": "images/mybug.gif",
+		"default_title": "Lookup Defintions Online",
+		"default_popup": "/html/options.html"
 	}
+}
