@@ -5,31 +5,10 @@
 	<link rel="stylesheet" href="/html/lookup.css" type="text/css">
 	<script src="/js/jquery.min.js" type="text/javascript"></script>
 	<script src="/js/helpers.js" type="text/javascript"></script>
-	<script type="text/javascript">
-		$('document').ready(function($) {
-			$('#message').html(esc).show();
-			$('#container-dics').html('');
-			
-			for (var i in dicts) {
-				title = dicts[i].title;
-				$('#container-dics').append('<input type="checkbox" name="all-dicts" id="cb'+i+'" value="'+(++i)+'" /><label for="cb'+(i-1)+'">'+title+'</label><br />');
-			}
-			
-			$('.save').click(function(e) {
-				e.preventDefault();
-				$('#message').stop().fadeTo(1,1);
-				saveDicts();
-			});
-			
-			$(document).keyup(function(e) {
-				if (e.keyCode == 27) { // Esc
-					window.close();
-				}
-			});
-		});
-	</script>
+	<script src="/js/options.js" type="text/javascript"></script>
+	<script src="/js/jquery-ui-1.7.1.custom.min.js" type="text/javascript"></script>
 </head>
-<body onload="restore()">
+<body>
 	<div id="wrapper">
 		<div id="container">
 			<h4>Enable/Disable Dictionaries</h4>
@@ -40,11 +19,12 @@
 			<span class="lookup-tab"><i>if checked, same tab will be focused and updated.</i></span><br/>
 			
 			<input type="checkbox" id="enabled"><label for="enabled">Lookup is enabled</label></input><br/>
-			<span class="lookup-tab"><i>if unchecked, Lookup is removed from context menu.</i></span><br/>
-			
+			<span class="lookup-tab"><i>if unchecked, Lookup will be removed from context menu.</i></span>
+			<p/>
 			<a class="save" href="#"/>Save</a>
+			<div id="message" class="success"></div>
 		</div>
-		<div id="message" class="success"></div>
+		
 	</div>
 </body>
 </html>
