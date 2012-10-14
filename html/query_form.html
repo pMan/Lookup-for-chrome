@@ -2,7 +2,4 @@
 <form name="look_up" action="http://dictionary.cambridge.org/search/british/" method="post">
 	<input id="q" name="q" type="hidden">
 </form>
-<script type="text/javascript">
-	document.getElementById('q').value = window.location.hash.substr(1);
-	look_up.submit();
-</script>
+<script type="text/javascript" src="/js/query_form.js"></script>
