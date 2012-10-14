@@ -144,13 +144,12 @@
 	var enabled = isEnabled();
 
 	chrome.contextMenus.removeAll();	// clear all
-	
 	if (enabled == true) {
 		// adding context menu items from dics (JSON) that stores all available dicts
 		dics = getEnabledDicts('menu');		// get all enabled dictionaries and
 		for (var i in dics) {				// add them one by one.
 			title = dics[i].title;
-			func = eval("lookup" + dics[i].func);
+			func = this["lookup" + dics[i].func];
 			chrome.contextMenus.create({"title": title, "contexts":[selCxt], "onclick": func});
 		}
 	}
