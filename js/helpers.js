@@ -4,57 +4,57 @@
 **********************************************************************************/
 
 var dics = [];
-var esc = '<div class="lookup-tab">Press Esc Key to exit...</div>';
+var esc = '<span class="lookup-tab">Press Esc Key to exit...</span>';
 	
 	// All dictionaries in JSON.
 	// TODO: remove url, no need
 	var dicts = [
-		{ // 1
+		{ // 0
 			func: "Cald",
 			title: "Cambridge Advanced Learner's",
 			url	: "http://www.google.com/search?tbs=dfn:1&q="
 		},
-		{ // 2
+		{ // 1
 			func: "Ldoce",
 			title: "Longman Contemporary English",
 			url	: "http://www.google.com/search?tbs=dfn:1&q="
 		},
-		{ // 3
+		{ // 2
 			func: "FreeDict",
 			title: "The Free Dictionary",
 			url	: "http://www.google.com/search?tbs=dfn:1&q="
 		},
-		{ // 4
+		{ // 3
 			func: "UrbanDict",
 			title: "Urban Dictionary",
 			url	: "http://www.google.com/search?tbs=dfn:1&q="
 		},
-		{ // 5
+		{ // 4
 			func: "MerriamWebster",
 			title: "Merriam Webster Dictionary",
 			url	: "http://www.google.com/search?tbs=dfn:1&q="
 		},
-		{ // 6
+		{ // 5
 			func: "Wiktionary",
 			title: "Wiktionary",
 			url	: "http://en.wiktionary.org/wiki/"
 		},
-		{ // 7
+		{ // 6
 			func: "Thesaurus",
 			title: "Thesaurus",
 			url	: "http://thesaurus.com/browse/"
 		},
-		{ // 8
+		{ // 7
 			func: "MerriamWebsterT",
 			title: "Merriam Webster Thesaurus",
 			url	: "http://www.merriam-webster.com/thesaurus/"
 		},
-		{ // 9
+		{ // 8
 			func: "OALD",
 			title: "Oxford Advanced Learner's",
 			url	: "http://www.oxfordadvancedlearnersdictionary.com/search/?q="
 		},
-		{ // 10
+		{ // 9
 			func: "Definition",
 			title: "Google definitions",
 			url	: "http://www.google.com/search?tbs=dfn:1&q="
@@ -88,13 +88,13 @@ var esc = '<div class="lookup-tab">Press Esc Key to exit...</div>';
 		// save enabled/disabled
 		if ($('#enabled').is(':checked')) {
 			localStorage["enabled"] = true;
-			chrome.browserAction.setIcon({path:"images/mybug.gif"});
+			//chrome.browserAction.setIcon({path:"images/mybug.gif"});
 		} else {
 			localStorage["enabled"] = false;
-			chrome.browserAction.setIcon({path:"images/mybug-dim.gif"});
+			//chrome.browserAction.setIcon({path:"images/mybug-dim.gif"});
 		}
 		
-		$('#message').html('Saved!' + esc).attr('class','success').show().fadeOut(4000);
+		$('#message').html('Saved! ' + esc).attr('class','success').show().fadeOut(4000);
 		$('#message > .lookup-tab').fadeOut(7000);
 		
 		var bkg = chrome.extension.getBackgroundPage();
@@ -112,7 +112,7 @@ var esc = '<div class="lookup-tab">Press Esc Key to exit...</div>';
 		if (flag == "menu") {
 			var retVal = [];
 			for (var i in dics) {
-				retVal.push(dicts[dics[i]-1]);
+				retVal.push(dicts[dics[i]]);
 			}
 			dics = retVal;
 		}
@@ -132,10 +132,10 @@ var esc = '<div class="lookup-tab">Press Esc Key to exit...</div>';
 	}
 	
 	// to populate data in options page
-	function restore() {
+	function restoreOptions() {
 		ds = getEnabledDicts("option");
 		for (var i in ds) {
-			$('#container input[value='+ds[i]+']').attr('checked','checked');
+			$('#container-dics #dics-list input[value='+ds[i]+']').attr('checked','checked');
 		}
 		var onlyOneTab = lookupInOnlyOneTab();
 		if (onlyOneTab) {
