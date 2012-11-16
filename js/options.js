@@ -3,7 +3,7 @@
 **/
 
 $('document').ready(function($) {
-	$('#message').html(esc).show();
+	$('#message').html('').show();
 	$('#container-dics').html('');
 	
 	// render all the options
@@ -23,6 +23,7 @@ $('document').ready(function($) {
 			'<label style="cursor:move;" for="cb'+(ds[i])+'">'+title+'</label></li>');
 		};
 	}
+	
 	// restore enabled options
 	restoreOptions();
 	
@@ -33,11 +34,12 @@ $('document').ready(function($) {
 		saveDicts();
 	});
 	
-	// Esc key action
-	$(document).keyup(function(e) {
-		if (e.keyCode == 27) { // Esc
-			window.close();
-		}
+	// Close action to hide the popup
+	$('.lookup-tab a[name=close]').click(function(){
+		var e = jQuery.Event("keyup");
+		e.keyCode = 27;
+		$(document).trigger(e);
+		window.close();
 	});
 	
 	// Save order of dictionaries / drag-n-drop
