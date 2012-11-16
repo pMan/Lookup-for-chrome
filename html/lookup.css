@@ -3,8 +3,8 @@ Please see readme.txt with this bundle.
 author: Prasad Cholakkottil
 */
 
-body {
-	
+.lookup-tab> a {
+	text-decoration:none;
 }
 #wrapper {
 	margin:auto;
@@ -106,7 +106,7 @@ hr {
 #message {
 	width: 312px;
 	height: auto;
-	font-weight: bold;
+	/*font-weight: bold;*/
 	text-align: left;
 	display: none;
 	margin-top: -40px;
@@ -114,7 +114,7 @@ hr {
 }
 
 .success {
-	color: #848484;
+	color: #249F24;
 }
 
 .error {
@@ -124,6 +124,7 @@ hr {
 .lookup-tab {
 	font-size:90%;
 	color:#828282;
+	padding-left: 26px;
 }
 
 #dics-list li {
@@ -132,4 +133,7 @@ hr {
 }
 #dics-list li:hover {
 	cursor: move;
+}
+label {
+	padding: 0 0 0 6px;
 }
