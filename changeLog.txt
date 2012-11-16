@@ -36,3 +36,8 @@
 	- manifest updated to version 2
 1.2.1
 	- bug fix: CALD was not loading - fixed.
+1.2.2
+	- added Close and Help links to the customize/options view
+	- removed the messages on Save
+1.2.3
+	- added missing jQuery UI, which is required for drag-n-rearrange.
