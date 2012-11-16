@@ -4,7 +4,7 @@
 **********************************************************************************/
 
 var dics = [];
-var esc = '<span class="lookup-tab">Press Esc Key to exit...</span>';
+var msg = '<span></span>'; // if any, once 'Save' clicked
 	
 	// All dictionaries in JSON.
 	// TODO: remove url, no need
@@ -66,7 +66,7 @@ var esc = '<span class="lookup-tab">Press Esc Key to exit...</span>';
 	// save all enabled dictionaries.
 	function saveDicts() {
 		if ($('#container > #container-dics :checked').length < 1) {
-			$('#message').html('Select at least one dictionary to save.' + esc).attr('class','error').show();
+			$('#message').html('Select at least one dictionary.').attr('class','error').show();
 			$('#message > .lookup-tab').fadeOut(7000);
 			return false;
 		}
@@ -94,8 +94,8 @@ var esc = '<span class="lookup-tab">Press Esc Key to exit...</span>';
 			//chrome.browserAction.setIcon({path:"images/mybug-dim.gif"});
 		}
 		
-		$('#message').html('Saved! ' + esc).attr('class','success').show().fadeOut(4000);
-		$('#message > .lookup-tab').fadeOut(7000);
+		$('#message').html('Saved! ' + msg).attr('class','success').show();
+		$('#message > span').fadeOut(7000);
 		
 		var bkg = chrome.extension.getBackgroundPage();
 		bkg.location.reload();
@@ -145,5 +145,13 @@ var esc = '<span class="lookup-tab">Press Esc Key to exit...</span>';
 		var enabled = isEnabled();
 		if (enabled) {
 			$('#enabled').attr('checked','checked');
+		}
+	}
+
+	// redirects to the Dictionary selected.
+	function redirect() {
+		var url = window.location.hash.substr(1);
+		if(url != undefined && url != "") {
+			location.href = url;
 		}
 	}
