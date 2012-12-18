@@ -8,7 +8,7 @@
 	- changeLog.txt added
 	- some comments and plain text changes
 0.5
-	- removed analytics code, I was wrong!
+	- removed analytics code, I was wrong! :O
 	- longest word shows in alert when huge selection is made
 0.6
 	- added Longman contemporary English dictionary
