@@ -41,7 +41,7 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 		},
 		{ // 6
 			func: "Thesaurus",
-			title: "Thesaurus",
+			title: "Thesaurus.com",
 			url	: "http://thesaurus.com/browse/"
 		},
 		{ // 7
