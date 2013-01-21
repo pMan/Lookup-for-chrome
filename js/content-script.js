@@ -129,6 +129,22 @@
 		}
 	}
 	
+	// for Investopedia
+	function lookupInvestopedia(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			openTab("/html/loading.html#http://www.investopedia.com/search/default.aspx?q="+keyword);
+		}
+	}
+	
+	// for Dictionary.com
+	function lookupDictionary(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			openTab("/html/loading.html#http://dictionary.reference.com/browse/"+keyword);
+		}
+	}
+	
 	// customize page
 	function showOptions(info, tab) {
 		//chrome.tabs.create({url: '/html/options.html', selected:true});
