@@ -59,6 +59,15 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 			title: "Google definitions",
 			url	: "http://www.google.com/search?tbs=dfn:1&q="
 		},
+		{ // 10
+			func: "Investopedia",
+			title: "Investopedia",
+			url	: "http://www.investopedia.com/search/default.aspx?q="
+		},
+		{ // 11
+			func: "Dictionary",
+			title: "Dictionary.com",
+		},
 		
 	];
 
