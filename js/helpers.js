@@ -68,6 +68,14 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 			func: "Dictionary",
 			title: "Dictionary.com",
 		},
+		{ // 12
+			func: "MacmillanDic",
+			title: "Macmillan Dictionary",
+		},
+		{ // 13
+			func: "MacmillanThes",
+			title: "Macmillan Thesaurus",
+		},
 		
 	];
 
