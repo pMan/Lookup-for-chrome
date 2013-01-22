@@ -42,4 +42,6 @@
 1.2.3
 	- added missing jQuery UI, which is required for drag-n-rearrange.
 1.2.4
-	- Added Investopedia and Dictionary.com
+	- added Investopedia and Dictionary.com
+1.2.5
+	- added Macmillan dictionary and Thesaurus
