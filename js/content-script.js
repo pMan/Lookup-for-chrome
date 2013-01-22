@@ -145,6 +145,22 @@
 		}
 	}
 	
+	// for Dictionary.com
+	function lookupMacmillanDic(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			openTab("/html/loading.html#http://www.macmillandictionary.com/dictionary/british/"+keyword);
+		}
+	}
+	
+	// for Dictionary.com
+	function lookupMacmillanThes(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			openTab("/html/loading.html#http://www.macmillandictionary.com/thesaurus/british/"+keyword);
+		}
+	}
+	
 	// customize page
 	function showOptions(info, tab) {
 		//chrome.tabs.create({url: '/html/options.html', selected:true});
