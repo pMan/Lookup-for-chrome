@@ -53,7 +53,7 @@
 	function lookupCald(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			openTab("/html/query_form.html#"+keyword);
+			showPopup("http://dictionary.cambridge.org/search/british/direct/?q="+keyword);
 		}
 	}
 
@@ -61,7 +61,7 @@
 	function lookupFreeDict(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			openTab("/html/loading.html#http://www.thefreedictionary.com/"+keyword);
+			showPopup("http://www.thefreedictionary.com/"+keyword);
 		}
 	}
 
@@ -69,7 +69,7 @@
 	function lookupDefinition(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			openTab("/html/loading.html#http://www.google.com/search?tbs=dfn:1&q="+keyword);
+			openTab("/html/loading.html#https://www.google.com/search?tbs=dfn:1&q="+keyword);
 		}
 	}
 
@@ -85,7 +85,7 @@
 	function lookupWiktionary(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			openTab("/html/loading.html#http://en.wiktionary.org/wiki/"+keyword);
+			showPopup("http://en.wiktionary.org/wiki/"+keyword);
 		}
 	}
 
@@ -93,7 +93,7 @@
 	function lookupMerriamWebster(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			openTab("/html/loading.html#http://www.merriam-webster.com/dictionary/"+keyword);
+			showPopup("http://www.merriam-webster.com/dictionary/"+keyword);
 		}
 	}
 	
@@ -101,7 +101,7 @@
 	function lookupLdoce(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			openTab("/html/loading.html#http://www.ldoceonline.com/search/?q="+keyword);
+			showPopup("http://www.ldoceonline.com/search/?q="+keyword);
 		}
 	}
 	
@@ -109,7 +109,7 @@
 	function lookupMerriamWebsterT(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			openTab("/html/loading.html#http://www.merriam-webster.com/thesaurus/"+keyword);
+			showPopup("http://www.merriam-webster.com/thesaurus/"+keyword);
 		}
 	}
 	
@@ -117,15 +117,15 @@
 	function lookupThesaurus(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			openTab("/html/loading.html#http://thesaurus.com/browse/"+keyword);
+			showPopup("http://thesaurus.com/browse/"+keyword);
 		}
 	}
-
+	
 	// for Oxford Advanced Learners Dictionary
 	function lookupOALD(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			openTab("/html/loading.html#http://www.oxfordadvancedlearnersdictionary.com/search/?q="+keyword);
+			showPopup("http://www.oxfordadvancedlearnersdictionary.com/search/?q="+keyword);
 		}
 	}
 	
@@ -133,7 +133,7 @@
 	function lookupInvestopedia(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			openTab("/html/loading.html#http://www.investopedia.com/search/default.aspx?q="+keyword);
+			showPopup("http://www.investopedia.com/search/default.aspx?q="+keyword);
 		}
 	}
 	
@@ -141,7 +141,7 @@
 	function lookupDictionary(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			openTab("/html/loading.html#http://dictionary.reference.com/browse/"+keyword);
+			showPopup("http://dictionary.reference.com/browse/"+keyword);
 		}
 	}
 	
@@ -149,7 +149,7 @@
 	function lookupMacmillanDic(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			openTab("/html/loading.html#http://www.macmillandictionary.com/dictionary/british/"+keyword);
+			showPopup("http://www.macmillandictionary.com/dictionary/british/"+keyword);
 		}
 	}
 	
@@ -157,16 +157,23 @@
 	function lookupMacmillanThes(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			openTab("/html/loading.html#http://www.macmillandictionary.com/thesaurus/british/"+keyword);
+			showPopup("http://www.macmillandictionary.com/thesaurus/british/"+keyword);
 		}
 	}
 	
-	// customize page
-	function showOptions(info, tab) {
-		//chrome.tabs.create({url: '/html/options.html', selected:true});
+	function showPopup(url) {
+		chrome.tabs.insertCSS(null, {file:"html/inject.css"});
+		chrome.tabs.executeScript(null, {code: "var url='"+url+"';"}, function(){
+			chrome.tabs.executeScript(null, {file:"js/jquery.min.js"}, function(){
+				chrome.tabs.executeScript(null, {file:"js/inject.js"}, function(){
+					
+				});
+			});
+		});
 	}
-
+	
 	// initialize	
+	var url = "";
 	var tabId = null;
 	var keywd = null;
 	var selCxt = "selection";
