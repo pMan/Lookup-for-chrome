@@ -9,7 +9,12 @@
 	  "48": "/images/mybug.gif"
 	},
 	"minimum_chrome_version": "8",
-	"permissions": [ "contextMenus", "tabs" ],
+	"permissions": [
+		"contextMenus",
+		"tabs",
+		"http://*/*",
+		"https://*/*"
+	],
 	"options_page": "/html/options.html",
 	"update_url": "http://clients2.google.com/service/update2/crx",
 	
