@@ -1,6 +1,6 @@
-Lookup!
+Lookup for chrome!
 
-Copyright (c) 2012 Prasad Cholakkottil aka pMan
+Copyright (c) 2013 Prasad Cholakkottil aka pMan
 
 Use of this source code is governed by GNU General Public License - http://www.gnu.org/licenses/gpl.html
 
