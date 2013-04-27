@@ -1,6 +1,6 @@
 /*
 Please see readme.txt with this bundle.
-author: Prasad Cholakkottil
+author: Prasad Cholakkottil aka pMan
 */
 
 .lookup-tab> a {
@@ -92,10 +92,9 @@ hr {
 	background-color: #DEDEDE;
 	margin-left: 10px;
 	margin-bottom: 10px;
-	padding: 4px 18px;
+	padding: 4px 18px 2px;
 	text-decoration: none;
-	-webkit-border-radius:15px;
-	-webkit-box-shadow: 2px 2px 10px #FFFFFF inset;
+	-webkit-border-radius:8px;
 }
 
 .save:active {
@@ -104,13 +103,11 @@ hr {
 }
 
 #message {
-	width: 312px;
+	width: 42px;
 	height: auto;
-	/*font-weight: bold;*/
 	text-align: left;
 	display: none;
-	margin-top: -40px;
-	float: right;
+	margin: -40px 0 0 10px;
 }
 
 .success {
