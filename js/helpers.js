@@ -105,10 +105,17 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 		// save enabled/disabled
 		if ($('#enabled').is(':checked')) {
 			localStorage["enabled"] = true;
-			//chrome.browserAction.setIcon({path:"images/mybug.gif"});
+			chrome.browserAction.setIcon({path:"images/mybug.gif"});
 		} else {
 			localStorage["enabled"] = false;
-			//chrome.browserAction.setIcon({path:"images/mybug-dim.gif"});
+			chrome.browserAction.setIcon({path:"images/mybug-dim.gif"});
+		}
+		
+		// save popup or tab
+		if ($('#popup').is(':checked')) {
+			localStorage["popup"] = true;
+		} else {
+			localStorage["popup"] = false;
 		}
 		
 		$('#message').html('Saved! ' + msg).attr('class','success').show();
@@ -148,6 +155,13 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 		return enabled == "true" || enabled == undefined; // true, if enabled
 	}
 	
+	// return truth value, for popup preference
+	// use popup, if enabled or unset.
+	function usePopup() {
+		var usePopup = localStorage["popup"];
+		return usePopup == "true";
+	}
+	
 	// to populate data in options page
 	function restoreOptions() {
 		ds = getEnabledDicts("option");
@@ -163,6 +177,12 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 		if (enabled) {
 			$('#enabled').attr('checked','checked');
 		}
+		
+		var popup = usePopup();
+		if (popup == true) {
+			$('#popup').attr('checked','checked');
+		}
+		
 	}
 
 	// redirects to the Dictionary selected.
