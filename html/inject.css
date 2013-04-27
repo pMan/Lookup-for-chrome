@@ -1,0 +1,31 @@
+.lookup_popup {
+	background-color: #ffffff;
+	border: 5px solid #000;
+	border-radius: 8px;
+	box-shadow: 0 0 44px;
+	padding: 10px 4px;
+	position:fixed;
+	top:100px;
+	width:80%;
+}
+.iframe_window {
+	background-color: white;
+	border: none;
+	display: block;
+	height: 100%;
+	margin: 2px auto;
+	width: 99%;
+	
+}
+.close {
+	position: absolute;
+	color: #fff;
+	cursor: pointer;
+	top: -26px;
+	right: 7px;
+	background: #000;
+	width: 32px;
+	padding: 8px 12px 8px 8px;
+	border-radius: 10px 10px;
+	font-weight: bold;
+}
