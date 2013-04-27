@@ -19,15 +19,19 @@
 			<span class="lookup-tab"><i>if checked, same tab will be focused and updated.</i></span><br/>
 			
 			<input type="checkbox" id="enabled"><label for="enabled">Lookup is enabled</label></input><br/>
-			<span class="lookup-tab"><i>if unchecked, Lookup will be removed from context menu.</i></span>
+			<span class="lookup-tab"><i>if unchecked, Lookup will be removed from context menu.</i></span><br/>
+			
+			<input type="checkbox" id="popup"><label for="popup">Use popup windows (instead of tabs)</label></input><br/>
+			<span class="lookup-tab"><i>if checked, Lookup will open a popup in the currently viewing tab.</i></span>
 			<p/>
+			
 			<a class="save" href="#"/>Save</a>
-			<div id="message" class="success"></div>
+			<span id="message" class="success"></span>
+			<span class="lookup-tab" style="float:right;">
+				<a href="#" name="close">Close</a>&nbsp;|&nbsp;
+				<a href="https://chrome.google.com/webstore/support/okmbiihjdbcblijmobaacddifcoaggeg?hl=en#bug"	target="blank">Help</a>
+			</span>
 		</div>
 	</div>
-	<span class="lookup-tab" style="float:right;">
-		<a href="#" name="close">Close</a>&nbsp;|&nbsp;
-		<a href="https://chrome.google.com/webstore/support/okmbiihjdbcblijmobaacddifcoaggeg?hl=en#bug"	target="blank">Help</a>
-	</span>
 </body>
 </html>
