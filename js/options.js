@@ -9,7 +9,7 @@ $('document').ready(function($) {
 	// render all the options
 	$('#container-dics').append('<ul id="dics-list">');
 	var order = localStorage['order'];
-	if (order == undefined) { // if not reordered
+	if (order == undefined) { // if not reordered before
 		for (var i in dicts) {
 			title = dicts[i].title;
 			$('#dics-list').append('<li id="'+i+'" title="Click-n-drag to reorder"><input type="checkbox" name="all-dicts" id="cb'+i+'" value="'+(i)+'" />'+
@@ -43,12 +43,12 @@ $('document').ready(function($) {
 	});
 	
 	// Save order of dictionaries / drag-n-drop
-	$( "#dics-list" ).sortable({
+	$('#dics-list').sortable({
 		update: function(){
 			var newOrder = $('#dics-list').sortable('toArray');
 			localStorage["order"] = newOrder;
 		}
 	});
-	$( "#dics-list" ).disableSelection();
+	$('#dics-list').disableSelection();
 		
 });
