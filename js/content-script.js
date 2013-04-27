@@ -145,7 +145,7 @@
 		}
 	}
 	
-	// for Dictionary.com
+	// for Macmillan dictionary
 	function lookupMacmillanDic(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
@@ -153,7 +153,7 @@
 		}
 	}
 	
-	// for Dictionary.com
+	// for Macmillan thesaurus
 	function lookupMacmillanThes(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
@@ -161,15 +161,20 @@
 		}
 	}
 	
+	// shows the popup with selectd dictionary URL.
+	// Inject style and scripts.
 	function showPopup(url) {
-		chrome.tabs.insertCSS(null, {file:"html/inject.css"});
-		chrome.tabs.executeScript(null, {code: "var url='"+url+"';"}, function(){
-			chrome.tabs.executeScript(null, {file:"js/jquery.min.js"}, function(){
-				chrome.tabs.executeScript(null, {file:"js/inject.js"}, function(){
-					
+	
+		if (usePopup) {
+			chrome.tabs.insertCSS(null, {file:"html/inject.css"});
+			chrome.tabs.executeScript(null, {code: "var url='"+url+"';"}, function(){
+				chrome.tabs.executeScript(null, {file:"js/jquery.min.js"}, function(){
+					chrome.tabs.executeScript(null, {file:"js/inject.js"});
 				});
 			});
-		});
+		} else {	
+			openTab("/html/loading.html#"+url);
+		}
 	}
 	
 	// initialize	
@@ -181,7 +186,8 @@
 	var title = "";
 	var onlyOneTab = lookupInOnlyOneTab();
 	var enabled = isEnabled();
-
+	var usePopup = usePopup();
+	
 	chrome.contextMenus.removeAll();	// clear all
 	if (enabled == true) {
 		// adding context menu items from dics (JSON) that stores all available dicts
