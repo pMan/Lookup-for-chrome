@@ -21,7 +21,7 @@ iframe_container.setAttribute("style", "height:"+height+"px;left:"+left+"px;z-in
 // creating the close button
 var close = document.createElement("div");
 close.innerHTML = "Close";
-close.setAttribute("class", "close");
+close.setAttribute("class", "close_lookup");
 
 // add iframe and close button to the containder
 iframe_container.appendChild(iframe);
@@ -47,7 +47,7 @@ $(document).keyup(function(e) {
     }
 });
 
-$(".close").click(function(){
+$(".close_lookup").click(function() {
 	$(".lookup_popup").fadeOut("600", function(){
 		$(".lookup_popup").remove();
 	});
