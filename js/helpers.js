@@ -7,32 +7,31 @@ var dics = [];
 var msg = '<span></span>'; // if any, once 'Save' clicked
 	
 	// All dictionaries in JSON.
-	// TODO: remove url, no need
 	var dicts = [
 		{ // 0
 			func: "Cald",
-			title: "Cambridge Advanced Learner's",
-			url	: "http://www.google.com/search?tbs=dfn:1&q="
+			title: "Cambridge Advanced Learners",
+			url	: "http://dictionary.cambridge.org/search/british/direct/?q="
 		},
 		{ // 1
 			func: "Ldoce",
 			title: "Longman Contemporary English",
-			url	: "http://www.google.com/search?tbs=dfn:1&q="
+			url	: "http://www.ldoceonline.com/search/?q="
 		},
 		{ // 2
 			func: "FreeDict",
 			title: "The Free Dictionary",
-			url	: "http://www.google.com/search?tbs=dfn:1&q="
+			url	: "http://www.thefreedictionary.com/"
 		},
 		{ // 3
 			func: "UrbanDict",
 			title: "Urban Dictionary",
-			url	: "http://www.google.com/search?tbs=dfn:1&q="
+			url	: "http://www.urbandictionary.com/define.php?term="
 		},
 		{ // 4
 			func: "MerriamWebster",
 			title: "Merriam Webster Dictionary",
-			url	: "http://www.google.com/search?tbs=dfn:1&q="
+			url	: "http://www.merriam-webster.com/thesaurus/"
 		},
 		{ // 5
 			func: "Wiktionary",
@@ -51,7 +50,7 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 		},
 		{ // 8
 			func: "OALD",
-			title: "Oxford Advanced Learner's",
+			title: "Oxford Advanced Learners",
 			url	: "http://www.oxfordadvancedlearnersdictionary.com/search/?q="
 		},
 		{ // 9
@@ -67,14 +66,17 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 		{ // 11
 			func: "Dictionary",
 			title: "Dictionary.com",
+			url: "http://dictionary.reference.com/browse/"
 		},
 		{ // 12
 			func: "MacmillanDic",
 			title: "Macmillan Dictionary",
+			url: "http://www.macmillandictionary.com/dictionary/british/"
 		},
 		{ // 13
 			func: "MacmillanThes",
 			title: "Macmillan Thesaurus",
+			url: "http://www.macmillandictionary.com/thesaurus/british/"
 		},
 		
 	];
@@ -131,7 +133,7 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 		if (enabledDics != undefined && enabledDics != null ) {
 			var dics = enabledDics.split(','); // private
 		} else {
-			var dics = [1,7,9,10]; // for the first time, after installation
+			var dics = [0,1,2,3,4,5,6,7,8,9,11,12,13]; // for the first time, after installation
 		}
 		if (flag == "menu") {
 			var retVal = [];
