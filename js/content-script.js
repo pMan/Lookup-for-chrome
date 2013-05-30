@@ -53,7 +53,7 @@
 	function lookupCald(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			showPopup("http://dictionary.cambridge.org/search/british/direct/?q="+keyword);
+			showPopup("http://dictionary.cambridge.org/search/british/direct/?q="+keyword, keyword);
 		}
 	}
 
@@ -61,7 +61,7 @@
 	function lookupFreeDict(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			showPopup("http://www.thefreedictionary.com/"+keyword);
+			showPopup("http://www.thefreedictionary.com/"+keyword, keyword);
 		}
 	}
 
@@ -85,7 +85,7 @@
 	function lookupWiktionary(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			showPopup("http://en.wiktionary.org/wiki/"+keyword);
+			showPopup("http://en.wiktionary.org/wiki/"+keyword, keyword);
 		}
 	}
 
@@ -93,7 +93,7 @@
 	function lookupMerriamWebster(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			showPopup("http://www.merriam-webster.com/dictionary/"+keyword);
+			showPopup("http://www.merriam-webster.com/dictionary/"+keyword, keyword);
 		}
 	}
 	
@@ -101,7 +101,7 @@
 	function lookupLdoce(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			showPopup("http://www.ldoceonline.com/search/?q="+keyword);
+			showPopup("http://www.ldoceonline.com/search/?q="+keyword, keyword);
 		}
 	}
 	
@@ -109,7 +109,7 @@
 	function lookupMerriamWebsterT(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			showPopup("http://www.merriam-webster.com/thesaurus/"+keyword);
+			showPopup("http://www.merriam-webster.com/thesaurus/"+keyword, keyword);
 		}
 	}
 	
@@ -117,7 +117,7 @@
 	function lookupThesaurus(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			showPopup("http://thesaurus.com/browse/"+keyword);
+			showPopup("http://thesaurus.com/browse/"+keyword, keyword);
 		}
 	}
 	
@@ -125,7 +125,7 @@
 	function lookupOALD(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			showPopup("http://www.oxfordadvancedlearnersdictionary.com/search/?q="+keyword);
+			showPopup("http://www.oxfordadvancedlearnersdictionary.com/search/?q="+keyword, keyword);
 		}
 	}
 	
@@ -133,7 +133,7 @@
 	function lookupInvestopedia(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			showPopup("http://www.investopedia.com/search/default.aspx?q="+keyword);
+			showPopup("http://www.investopedia.com/search/default.aspx?q="+keyword, keyword);
 		}
 	}
 	
@@ -141,7 +141,7 @@
 	function lookupDictionary(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			showPopup("http://dictionary.reference.com/browse/"+keyword);
+			showPopup("http://dictionary.reference.com/browse/"+keyword, keyword);
 		}
 	}
 	
@@ -149,7 +149,7 @@
 	function lookupMacmillanDic(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			showPopup("http://www.macmillandictionary.com/dictionary/british/"+keyword);
+			showPopup("http://www.macmillandictionary.com/dictionary/british/"+keyword, keyword);
 		}
 	}
 	
@@ -157,17 +157,17 @@
 	function lookupMacmillanThes(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			showPopup("http://www.macmillandictionary.com/thesaurus/british/"+keyword);
+			showPopup("http://www.macmillandictionary.com/thesaurus/british/"+keyword, keyword);
 		}
 	}
 	
 	// shows the popup with selectd dictionary URL.
 	// Inject style and scripts.
-	function showPopup(url) {
-	
+	function showPopup(url, keyword) {
+		var arr = [url, keyword, dics];
 		if (usePopup) {
 			chrome.tabs.insertCSS(null, {file:"html/inject.css"});
-			chrome.tabs.executeScript(null, {code: "var url='"+url+"';"}, function(){
+			chrome.tabs.executeScript(null, {code: "var a='"+JSON.stringify(arr)+"';"}, function(){
 				chrome.tabs.executeScript(null, {file:"js/jquery.min.js"}, function(){
 					chrome.tabs.executeScript(null, {file:"js/inject.js"});
 				});
