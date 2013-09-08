@@ -1,5 +1,7 @@
 /**
- Options.js file does the rendering of options popup page. (for manifest V2)
+	Options.js file does the rendering of options popup page. (for manifest V2)
+	Please see readme.txt with this bundle.
+	author: Prasad Cholakkottil aka pMan
 **/
 
 $('document').ready(function($) {
@@ -35,7 +37,7 @@ $('document').ready(function($) {
 	});
 	
 	// Close action to hide the popup
-	$('.lookup-tab a[name=close]').click(function(){
+	$('a[name=close]').click(function(){
 		var e = jQuery.Event("keyup");
 		e.keyCode = 27;
 		$(document).trigger(e);
@@ -50,5 +52,42 @@ $('document').ready(function($) {
 		}
 	});
 	$('#dics-list').disableSelection();
+	
+	// tabbing
+	$('a[name=dictionaries]').click(function(){
+		$('.dictionaries').show();
+		$('a[name=dictionaries]').attr('class', 'active');
 		
+		$('.prefs').hide();
+		$('.contribute').hide();
+		$('a[name=prefs]').removeAttr('class');
+		$('a[name=contribute]').removeAttr('class');
+		
+		$('.lookup-tab-save').show();
+	});
+	
+	$('a[name=prefs]').click(function(){
+		$('.dictionaries').hide();
+		$('a[name=prefs]').attr('class', 'active');
+		
+		$('.prefs').show();
+		$('.contribute').hide();
+		$('a[name=dictionaries]').removeAttr('class');
+		$('a[name=contribute]').removeAttr('class');
+		
+		$('.lookup-tab-save').show();
+	});
+	
+	$('a[name=contribute]').click(function(){
+		$('.dictionaries').hide();
+		$('a[name=contribute]').attr('class', 'active');
+		
+		$('.prefs').hide();
+		$('.contribute').show();
+		$('a[name=dictionaries]').removeAttr('class');
+		$('a[name=prefs]').removeAttr('class');
+		
+		$('.lookup-tab-save').hide();
+	});
+	
 });
