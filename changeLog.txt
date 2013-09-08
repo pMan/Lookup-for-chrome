@@ -55,3 +55,6 @@
 1.3.3
 	- added list box in the popup
 	- renamed all the variables in the inject files to avoid conflicts
+1.3.4
+	- seggregated the contents in options page into tabs.
+	- added paypal donate button.
