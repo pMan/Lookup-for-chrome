@@ -84,7 +84,7 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 	// function called when save button is pressed, to
 	// save all enabled dictionaries.
 	function saveDicts() {
-		if ($('#container > #container-dics :checked').length < 1) {
+		if ($('#container #container-dics :checked').length < 1) {
 			$('#message').html('Select at least one dictionary.').attr('class','error').show();
 			$('#message > .lookup-tab').fadeOut(7000);
 			return false;
@@ -92,7 +92,7 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 		
 		// save all enabled dictionaries
 		var enabledDics = [];
-		$('#container > #container-dics :checked').each(function() {
+		$('#container #container-dics :checked').each(function() {
 			enabledDics.push($(this).val());
 		});
 		localStorage["enabledDics"] = enabledDics;
