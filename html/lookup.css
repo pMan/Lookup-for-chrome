@@ -2,7 +2,6 @@
 Please see readme.txt with this bundle.
 author: Prasad Cholakkottil aka pMan
 */
-
 a {
 	text-decoration:none;
 }
@@ -11,14 +10,18 @@ a {
 }
 
 div > div{
-	font-family: Tahoma;
+	font-family: Arial, Tahoma;
+}
+
+select {
+	color: #484848;
+	font-size: 12px;
 }
 
 h1 {
 	width:280px;
 	color: #ADADAD;
 	margin:20px auto 10px;
-	border: 0px solid gray;
 }
 
 h4 {
@@ -33,11 +36,10 @@ hr {
 }
 
 #container {
-	width: 400px;
-	height: 510px;
+	width: 480px;
 	margin: auto;
-	padding: 0 20px 20px;
-	font-family: Tahoma;
+	padding: 0 0 60px;
+	font-family: Arial, Tahoma;
 	font-size: 14px;
 	color: #454545;
 	line-height: 24px;
@@ -73,12 +75,12 @@ hr {
 /* Overriding default webkit style -- ends */
 
 #container input {
-	font-family: Tahoma;
+	font-family: Arial, Tahoma;
 }
 
 #container-dics {
 	margin-bottom: 10px;
-	height: 306px;
+	height: 320px;
 	overflow: auto;
 	border: 1px solid lightgray;
 	padding-bottom: 10px;
@@ -118,10 +120,18 @@ hr {
 	color: #FF2323;
 }
 
-.lookup-tab {
+.lookup-tab, .lookup-tab-save {
 	font-size:90%;
 	color:#828282;
 	padding-left: 26px;
+	position: absolute:
+	right: 0;
+}
+
+.lookup-tab-save {
+	float:right;
+	width:100%;
+	padding-top:20px;
 }
 
 #dics-list li {
@@ -133,4 +143,40 @@ hr {
 }
 label {
 	padding: 0 0 0 6px;
+}
+
+
+
+ul.tabs {
+	border-bottom: 1px solid #999;
+	padding: 0 9px;
+}
+.tabs li {
+	list-style:none;
+	display:inline;
+}
+
+.tabs a {
+	background: none repeat scroll 0 0 #fff;
+	border-radius: 6px 6px 0 0;
+	border: 1px solid #aaa;
+	border-bottom: none;
+	box-shadow: 0 0 8px -3px #888888;
+	color: #848484;
+	display: inline-block;
+	padding: 7px 10px 3px;
+	text-decoration: none;
+}
+
+.tabs a:hover {
+	background: none repeat scroll 0 0 #fff;
+	color:#484848;
+}
+.tabs a.active {
+	background: none repeat scroll 0 0 #7F7F7F;
+	border-radius: 6px 6px 0 0;
+	box-shadow: 0 0 8px -1px #444444;
+	color: #f8f8f8;
+	border: 1px solid #ffffff;
+	border-bottom: none;
 }
