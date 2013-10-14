@@ -161,6 +161,14 @@
 		}
 	}
 	
+	// for Accounting Dictionary
+	function lookupAccountDict(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://accountingdictionary.org/dictionary/"+keyword, keyword);
+		}
+	}
+	
 	// shows the popup with selectd dictionary URL.
 	// Inject style and scripts.
 	function showPopup(url, keyword) {
