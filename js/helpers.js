@@ -78,6 +78,11 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 			title: "Macmillan Thesaurus",
 			url: "http://www.macmillandictionary.com/thesaurus/british/"
 		},
+		{ // 14
+			func: "AccountDict",
+			title: "Accounting Dictionary",
+			url: "http://accountingdictionary.org/dictionary/"
+		},
 		
 	];
 
