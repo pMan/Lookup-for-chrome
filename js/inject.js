@@ -7,6 +7,7 @@ if( iframe_container == undefined) {
 	var iframe_container = document.createElement("div");
 	iframe_container.setAttribute("name", "lookup_definitions_online_container");
 	iframe_container.setAttribute("id", "__lookup_popup");
+	iframe_container.setAttribute("title", "Click and drag to move");
 }else {
 	iframe_container.innerHTML = "";
 }
@@ -15,10 +16,11 @@ if( iframe_container == undefined) {
 // dimensions of client area.
 var __lh = "80%"; // height
 var __lw = "80%"; // width
-var __lt = "10%"; // top
-var __ll = "10%"; // left
+var __lt = "0"; // top
+var __ll = "0"; // left
 
-iframe_container.setAttribute("style", "height:"+__lh+";left:"+__ll+";width:"
+iframe_container.setAttribute("style", "padding-top:24px;cursor:crosshair;"
+		+"height:"+__lh+";left:"+__ll+";width:"
 		+__lw+";top:"+__lt+";z-index:16777270;");
 
 // creating the close button
@@ -75,6 +77,8 @@ $(document).keyup(function(e) {
         });
     }
 });
+
+$("#__lookup_popup").draggable();
 
 // Close popup button click hadler
 $("#__close_lookup").click(function() {
