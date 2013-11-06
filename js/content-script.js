@@ -177,7 +177,9 @@
 			chrome.tabs.insertCSS(null, {file:"html/inject.css"});
 			chrome.tabs.executeScript(null, {code: "var a='"+JSON.stringify(arr)+"';"}, function(){
 				chrome.tabs.executeScript(null, {file:"js/jquery.min.js"}, function(){
-					chrome.tabs.executeScript(null, {file:"js/inject.js"});
+					chrome.tabs.executeScript(null, {file:"js/jquery-ui-1.7.1.custom.min.js"}, function(){
+						chrome.tabs.executeScript(null, {file:"js/inject.js"});
+					});
 				});
 			});
 		} else {	
