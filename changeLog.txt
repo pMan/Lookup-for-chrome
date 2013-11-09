@@ -60,5 +60,7 @@
 	- added paypal donate button
 1.3.5
 	- options page spelling corrected, text updated, known issues URL updated
-1.3.5
+1.3.6
 	- accounting dictionary added
+1.3.7
+	- added changes to the popup to be draggable
