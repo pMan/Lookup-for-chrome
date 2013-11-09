@@ -8,18 +8,20 @@ if( iframe_container == undefined) {
 	iframe_container.setAttribute("name", "lookup_definitions_online_container");
 	iframe_container.setAttribute("id", "__lookup_popup");
 	iframe_container.setAttribute("title", "Click and drag to move");
+	iframe_container.setAttribute("style", "background-image:url(http://cdn.sstatic.net/Img/mini-hero-bg.png);");
 }else {
 	iframe_container.innerHTML = "";
 }
 
 // setup styles for popup container.Parameters are set based on the
 // dimensions of client area.
-var __lh = "80%"; // height
-var __lw = "80%"; // width
-var __lt = "0"; // top
-var __ll = "0"; // left
+var __lh = window.innerHeight * 0.8 + "px"; // height 80%
+var __lw = window.innerWidth * 0.8+ "px"; // width 80%
+var __lt = window.innerHeight * 0.1 + "px"; // top 10%
+var __ll = window.innerWidth * 0.1+ "px"; // left 10%
 
-iframe_container.setAttribute("style", "padding-top:24px;cursor:crosshair;"
+var __s = iframe_container.getAttribute("style");
+iframe_container.setAttribute("style", __s + "padding-top:24px;cursor:crosshair;"
 		+"height:"+__lh+";left:"+__ll+";width:"
 		+__lw+";top:"+__lt+";z-index:16777270;");
 
