@@ -69,7 +69,7 @@
 	function lookupDefinition(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			openTab("/html/loading.html#https://www.google.co.in/webhp?#tbs=dfn:1&q="+keyword);
+			openTab("/html/loading.html#http://www.google.co.in/webhp?#tbs=dfn:1&q="+keyword);
 		}
 	}
 
