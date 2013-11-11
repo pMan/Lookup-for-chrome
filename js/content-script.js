@@ -69,7 +69,7 @@
 	function lookupDefinition(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			openTab("/html/loading.html#http://www.google.co.in/webhp?#tbs=dfn:1&q="+keyword);
+			openTab("/html/loading.html#http://www.google.com/search?q=define+"+keyword);
 		}
 	}
 
@@ -166,6 +166,60 @@
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
 			showPopup("http://accountingdictionary.org/dictionary/"+keyword, keyword);
+		}
+	}
+	
+	// for Reverso Dictionary
+	function lookupReversoDict(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://dictionary.reverso.net/english-cobuild/"+keyword, keyword);
+		}
+	}
+	
+	// for Collins English Dictionary
+	function lookupCollinsEnglishDict(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://www.collinsdictionary.com/dictionary/english/"+keyword, keyword);
+		}
+	}
+
+	// for Collins English Dictionary
+	function lookupCollinsThesaurus(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://www.collinsdictionary.com/dictionary/english-thesaurus/"+keyword, keyword);
+		}
+	}
+	
+	// for Collins French Dictionary
+	function lookupCollinsFrenchDict(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://www.collinsdictionary.com/dictionary/english-french/"+keyword, keyword);
+		}
+	}
+
+	// for Collins German Dictionary
+	function lookupCollinsGermanDict(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://www.collinsdictionary.com/dictionary/english-german/"+keyword, keyword);
+		}
+	}
+	// for Collins Spanish Dictionary
+	function lookupCollinsSpanishDict(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://www.collinsdictionary.com/dictionary/english-spanish/"+keyword, keyword);
+		}
+	}
+	// for Collins Italian Dictionary
+	function lookupCollinsItalianDict(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://www.collinsdictionary.com/dictionary/english-italian/"+keyword, keyword);
 		}
 	}
 	
