@@ -83,6 +83,41 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 			title: "Accounting Dictionary",
 			url: "http://accountingdictionary.org/dictionary/"
 		},
+		{ // 15
+			func: "ReversoDict",
+			title: "Reverso Dictionary",
+			url: "http://dictionary.reverso.net/english-cobuild/"
+		},
+		{ // 16
+			func: "CollinsEnglishDict",
+			title: "Collins English Dictionary",
+			url: "http://www.collinsdictionary.com/dictionary/english/"
+		},
+		{ // 17
+			func: "CollinsThesaurus",
+			title: "Collins Thesaurus",
+			url: "http://www.collinsdictionary.com/dictionary/english-thesaurus/"
+		},
+		{ // 18
+			func: "CollinsFrenchDict",
+			title: "Collins English-French Dictionary",
+			url: "http://www.collinsdictionary.com/dictionary/english-french/"
+		},
+		{ // 19
+			func: "CollinsGermanDict",
+			title: "Collins English-German Dictionary",
+			url: "http://www.collinsdictionary.com/dictionary/english-german/"
+		},
+		{ // 20
+			func: "CollinsSpanishDict",
+			title: "Collins English-Spanish Dictionary",
+			url: "http://www.collinsdictionary.com/dictionary/english-spanish/"
+		},
+		{ // 21
+			func: "CollinsItalianDict",
+			title: "Collins English-Italian Dictionary",
+			url: "http://www.collinsdictionary.com/dictionary/english-italian/"
+		}
 		
 	];
 
@@ -138,7 +173,8 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 		if (enabledDics != undefined && enabledDics != null ) {
 			var dics = enabledDics.split(','); // private
 		} else {
-			var dics = [0,1,2,3,4,5,6,7,8,9,11,12,13]; // for the first time, after installation
+			// for the first time, after installation
+			var dics = [0,1,2,3,4,5,6,7,8,9,11,12,13,15,16,17,18,19,20,21];
 		}
 		if (flag == "menu") {
 			var retVal = [];
