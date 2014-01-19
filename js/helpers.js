@@ -147,10 +147,8 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 		// save enabled/disabled
 		if ($('#enabled').is(':checked')) {
 			localStorage["enabled"] = true;
-			chrome.browserAction.setIcon({path:"images/mybug.gif"});
 		} else {
 			localStorage["enabled"] = false;
-			chrome.browserAction.setIcon({path:"images/mybug-dim.gif"});
 		}
 		
 		// save popup or tab
