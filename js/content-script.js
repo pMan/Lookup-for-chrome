@@ -262,3 +262,9 @@
 			chrome.contextMenus.create({"title": title, "contexts":[selCxt], "onclick": func});
 		}
 	}
+	
+    /* chrome.tabs.onActivated.addListener(function(info) {
+		var tab = chrome.tabs.get(info.tabId, function(tab) {
+		    chrome.tabs.executeScript(null, {file:"js/shortcut.js"}, function(){});
+		});
+	}); */
