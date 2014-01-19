@@ -67,3 +67,5 @@
 1.3.8
 	- Google def updated to work with modified query string
 	- Collins dectionary, thesaurus and translators added
+1.3.9
+	- inject script to object oriented JS
