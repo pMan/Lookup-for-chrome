@@ -31,7 +31,8 @@
 	color: #fff;
 	cursor: pointer;
 	right: 0px;
-	width: 12px;
+	width: 40px;
+text-align: right;
 	padding: 4px 8px 4px 10px;
 	border-radius: 0;
 	font-weight: bold;	
@@ -39,6 +40,7 @@
 #ldo_popup > #dics_listbox {
 	background-color: #ffffff;
 	border: 1px solid #000000;
+	height: 23px;
 	width: auto;
 	right: 30px;
 	border-radius: 0 0 0 4px;
