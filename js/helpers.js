@@ -117,6 +117,11 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 			func: "CollinsItalianDict",
 			title: "Collins English-Italian Dictionary",
 			url: "http://www.collinsdictionary.com/dictionary/english-italian/"
+		},
+		{ // 22
+			func: "LingueeDict",
+			title: "Linguee Dictionary",
+			url: "http://www.linguee.es/espanol-ingles/search?query="
 		}
 		
 	];
@@ -172,7 +177,7 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 			var dics = enabledDics.split(','); // private
 		} else {
 			// for the first time, after installation
-			var dics = [0,1,2,3,4,5,6,7,8,9,11,12,13,15,16,17,18,19,20,21];
+			var dics = [0,1,2,3,4,5,6,7,8,9,11,12,13,15,16,17,18,19,20,21, 22];
 		}
 		if (flag == "menu") {
 			var retVal = [];
