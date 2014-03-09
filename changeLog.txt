@@ -69,3 +69,5 @@
 	- Collins dectionary, thesaurus and translators added
 1.3.9
 	- inject script to object oriented JS
+1.3.10
+	- added linguee dictionary
