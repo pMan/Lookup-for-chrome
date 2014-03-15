@@ -237,6 +237,13 @@
 			showPopup("http://www.learnersdictionary.com/definition/"+keyword, keyword);
 		}
 	}
+
+	function lookupCollinsCobuildDict(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://www.collinsdictionary.com/dictionary/english-cobuild-learners/"+keyword, keyword);
+		}
+	}
 	
 	// shows the popup with selectd dictionary URL.
 	// Inject style and scripts.
