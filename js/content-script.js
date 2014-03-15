@@ -223,7 +223,7 @@
 		}
 	}
 	
-	// for lingueeDictionary
+	// for linguee Dictionary
 	function lookupLingueeDict(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
@@ -231,6 +231,7 @@
 		}
 	}
 
+    // for Merriam Webster Learner's Dictionary
 	function lookupMerriamWebsterL(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
@@ -238,6 +239,7 @@
 		}
 	}
 
+    // for Collins Cobuild Learner's Dictionary
 	function lookupCollinsCobuildDict(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
@@ -248,19 +250,28 @@
 	// shows the popup with selectd dictionary URL.
 	// Inject style and scripts.
 	function showPopup(url, keyword) {
-		var arr = [url, keyword, dics];
-		if (usePopup) {
-			chrome.tabs.insertCSS(null, {file:"html/inject.css"});
-			chrome.tabs.executeScript(null, {code: "var a='"+JSON.stringify(arr)+"';"}, function(){
-				chrome.tabs.executeScript(null, {file:"js/jquery.min.js"}, function(){
-					chrome.tabs.executeScript(null, {file:"js/jquery-ui-1.10.3.min.js"}, function(){
-						chrome.tabs.executeScript(null, {file:"js/inject.js"});
-					});
-				});
-			});
-		} else {	
-			openTab("/html/loading.html#"+url);
-		}
+        chrome.tabs.getSelected(null, function(tab) {
+            var arr = [url, keyword, dics];
+            var getProtocol = function (url) {
+                var parser = document.createElement('a');
+                parser.href = url;
+                return parser.protocol;
+            };
+
+            var isHttps = getProtocol(tab.url) === 'https:' ? true : false;
+            if (usePopup && !isHttps) {
+                chrome.tabs.insertCSS(null, {file:"html/inject.css"});
+                chrome.tabs.executeScript(null, {code: "var a='"+JSON.stringify(arr)+"';"}, function(){
+                    chrome.tabs.executeScript(null, {file:"js/jquery.min.js"}, function(){
+                        chrome.tabs.executeScript(null, {file:"js/jquery-ui-1.10.3.min.js"}, function(){
+                            chrome.tabs.executeScript(null, {file:"js/inject.js"});
+                        });
+                    });
+                });
+            } else {	
+                openTab("/html/loading.html#"+url);
+            }
+        });
 	}
 	
 	// initialize	
