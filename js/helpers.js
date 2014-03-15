@@ -122,8 +122,12 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 			func: "LingueeDict",
 			title: "Linguee Dictionary",
 			url: "http://www.linguee.es/espanol-ingles/search?query="
-		}
-		
+		},
+        { // 23
+            func: "MerriamWebsterL",
+            title: "Merriam Webster Learner's Dictionary",
+            url: "http://www.learnersdictionary.com/definition/"
+        }
 	];
 
 	// function called when save button is pressed, to
@@ -177,7 +181,7 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 			var dics = enabledDics.split(','); // private
 		} else {
 			// for the first time, after installation
-			var dics = [0,1,2,3,4,5,6,7,8,9,11,12,13,15,16,17,18,19,20,21, 22];
+			var dics = [0,1,2,3,4,5,6,7,8,9,11,12,13,15,16,17,18,19,20,21,22,23];
 		}
 		if (flag == "menu") {
 			var retVal = [];

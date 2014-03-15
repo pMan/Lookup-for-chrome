@@ -230,6 +230,13 @@
 			showPopup("http://www.linguee.es/espanol-ingles/search?query="+keyword, keyword);
 		}
 	}
+
+	function lookupMerriamWebsterL(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://www.learnersdictionary.com/definition/"+keyword, keyword);
+		}
+	}
 	
 	// shows the popup with selectd dictionary URL.
 	// Inject style and scripts.
