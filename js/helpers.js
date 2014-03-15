@@ -125,12 +125,12 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 		},
         { // 23
             func: "MerriamWebsterL",
-            title: "Merriam Webster Learner's Dictionary",
+            title: "Merriam Webster Learners Dictionary",
             url: "http://www.learnersdictionary.com/definition/"
         },
         { // 24
             func: "CollinsCobuildDict",
-            title: "Collins Cobuild Learner's Dictionary",
+            title: "Collins Cobuild Learners Dictionary",
             url: "http://www.collinsdictionary.com/dictionary/english-cobuild-learners/"
         }
 
