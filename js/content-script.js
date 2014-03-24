@@ -125,7 +125,7 @@
 	function lookupOALD(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			showPopup("http://www.oxfordadvancedlearnersdictionary.com/search/?q="+keyword, keyword);
+			showPopup("http://www.oxfordlearnersdictionaries.com/search/english/direct/?q="+keyword, keyword);
 		}
 	}
 	
@@ -268,7 +268,7 @@
                         });
                     });
                 });
-            } else {	
+            } else {
                 openTab("/html/loading.html#"+url);
             }
         });
