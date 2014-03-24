@@ -51,7 +51,7 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 		{ // 8
 			func: "OALD",
 			title: "Oxford Advanced Learners",
-			url	: "http://www.oxfordadvancedlearnersdictionary.com/search/?q="
+			url	: "http://www.oxfordlearnersdictionaries.com/search/english/direct/?q="
 		},
 		{ // 9
 			func: "Definition",
@@ -123,16 +123,16 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 			title: "Linguee Dictionary",
 			url: "http://www.linguee.es/espanol-ingles/search?query="
 		},
-        { // 23
-            func: "MerriamWebsterL",
-            title: "Merriam Webster Learners Dictionary",
-            url: "http://www.learnersdictionary.com/definition/"
-        },
-        { // 24
-            func: "CollinsCobuildDict",
-            title: "Collins Cobuild Learners Dictionary",
-            url: "http://www.collinsdictionary.com/dictionary/english-cobuild-learners/"
-        }
+		{ // 23
+			func: "MerriamWebsterL",
+			title: "Merriam Webster Learners Dictionary",
+			url: "http://www.learnersdictionary.com/definition/"
+		},
+		{ // 24
+			func: "CollinsCobuildDict",
+			title: "Collins Cobuild Learners Dictionary",
+			url: "http://www.collinsdictionary.com/dictionary/english-cobuild-learners/"
+		}
 
 	];
 
