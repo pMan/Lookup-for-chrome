@@ -132,7 +132,12 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 			func: "CollinsCobuildDict",
 			title: "Collins Cobuild Learners Dictionary",
 			url: "http://www.collinsdictionary.com/dictionary/english-cobuild-learners/"
-		}
+		},
+		{ // 25
+			func: "OALDAMER",
+			title: "Oxford Advanced Learners - American English",
+			url	: "http://www.oxfordlearnersdictionaries.com/search/american_english/direct/?q="
+		},
 
 	];
 
