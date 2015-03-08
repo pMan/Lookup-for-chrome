@@ -28,7 +28,19 @@ $('document').ready(function($) {
 	
 	// restore enabled options
 	restoreOptions();
-	
+
+	$('input[name=actionall]').click(function(){
+		if ($(this).is(':checked')) {
+			$('#container #container-dics input[type=checkbox]').each(function() {
+				$(this).attr('checked', true);
+			});
+		} else {
+			$('#container #container-dics input[type=checkbox]').each(function() {
+				$(this).attr('checked', false);
+			});
+		}
+	});
+
 	// Save action
 	$('.save').click(function(e) {
 		e.preventDefault();
