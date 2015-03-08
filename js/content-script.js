@@ -272,7 +272,7 @@
                 chrome.tabs.executeScript(null, {code: "var a='"+JSON.stringify(arr)+"';"}, function(){
                     chrome.tabs.executeScript(null, {file:"js/jquery.min.js"}, function(){
                         chrome.tabs.executeScript(null, {file:"js/jquery-ui-1.10.3.min.js"}, function(){
-                            chrome.tabs.executeScript(null, {file:"js/inject.js"});
+                            chrome.tabs.executeScript(null, {file:"js/inject.min.js"});
                         });
                     });
                 });
