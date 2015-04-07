@@ -70,7 +70,7 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 		},
 		{ // 12
 			func: "MacmillanDic",
-			title: "Macmillan Dictionary",
+			title: "Macmillan Dictionary - British",
 			url: "http://www.macmillandictionary.com/dictionary/british/"
 		},
 		{ // 13
@@ -138,7 +138,11 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 			title: "Oxford Advanced Learners - American English",
 			url	: "http://www.oxfordlearnersdictionaries.com/search/american_english/direct/?q="
 		},
-
+		{ // 26
+			func: "MacmillanDicAmer",
+			title: "Macmillan Dictionary - American",
+			url: "http://www.macmillandictionary.com/dictionary/american/"
+		},
 	];
 
 	// function called when save button is pressed, to
