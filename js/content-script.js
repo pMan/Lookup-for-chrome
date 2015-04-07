@@ -255,6 +255,13 @@
 		}
 	}
 	
+	// for Macmillan dictionary American
+	function lookupMacmillanDicAmer(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://www.macmillandictionary.com/dictionary/american/"+keyword, keyword);
+		}
+	}
 	// shows the popup with selectd dictionary URL.
 	// Inject style and scripts.
 	function showPopup(url, keyword) {
