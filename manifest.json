@@ -1,6 +1,6 @@
 {
 	"name": "Lookup Definitions - Dictionary & Thesaurus",
-	"version": "1.3.13",
+	"version": "1.3.14",
 	"manifest_version": 2,
 	
 	"background": { "page" : "/html/background.html" },
@@ -12,8 +12,24 @@
 	"permissions": [
 		"contextMenus",
 		"tabs",
-		"http://*/*",
-		"https://*/*"
+		"http://dictionary.cambridge.org/",
+		"http://www.ldoceonline.com/",
+		"http://www.thefreedictionary.com/",
+		"http://www.urbandictionary.com/",
+		"http://www.merriam-webster.com/",
+		"http://en.wiktionary.org/wiki/",
+		"http://thesaurus.com/",
+		"http://www.oxfordlearnersdictionaries.com/",
+		"http://www.google.com/",
+		"http://www.investopedia.com/",
+		"http://dictionary.reference.com/",
+		"http://www.macmillandictionary.com/",
+		"http://accountingdictionary.org/",
+		"http://dictionary.reverso.net/",
+		"http://www.collinsdictionary.com/",
+		"http://www.linguee.es/",
+		"http://www.learnersdictionary.com/",
+		"http://www.oxfordlearnersdictionaries.com/"
 	],
 	"options_page": "/html/options.html",
 	"update_url": "http://clients2.google.com/service/update2/crx",
