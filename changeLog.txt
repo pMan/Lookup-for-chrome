@@ -77,3 +77,8 @@
 	- added oxford advanced learners american dictionary
 1.3.13
 	- added select/deselect all option
+1.3.14
+	- added macmillan american dictionary
+	- replaced all website permission with the dictionary sites in manifest.json
+1.4
+	- added chrome commands Ctrl+Shift+L to lookup
