@@ -37,6 +37,11 @@ var LDO = {
 		close.innerHTML = "X";
 		close.setAttribute("id", "__close_lookup");
 
+		// creating the title of the popup
+		var titil = document.createElement("span");
+		titil.innerHTML = "<u>Lookup Definitions Online by pMan</u>";
+		titil.setAttribute("id", "__title_lookup");
+		
 		// seggregate the date sent from extension script
 		var info = $.parseJSON(a);
 		var url = info[0];
@@ -49,7 +54,8 @@ var LDO = {
 
 		// add all dictionaries which are enabled by user.
 		for (var i=0; i < dics.length; i++) {
-			if ( dics[i].func == "UrbanDict" || dics[i].func == "Definition" || dics[i].func == "" ) {
+			if ( dics[i].func == "UrbanDict" || dics[i].func == "Definition" || 
+				dics[i].func == "Infoplease" || dics[i].func == "Etymology" || dics[i].func == "" ) {
 				continue;
 			}
 			var ov = document.createElement("option");
@@ -62,6 +68,7 @@ var LDO = {
 		}
 
 		// add iframe and close button to the containder
+		iframeWrapper.appendChild(titil);
 		iframeWrapper.appendChild(iframe);
 		iframeWrapper.appendChild(close);
 		iframeWrapper.appendChild(listbox);
