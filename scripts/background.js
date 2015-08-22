@@ -262,6 +262,136 @@
 			showPopup("http://www.macmillandictionary.com/dictionary/american/"+keyword, keyword);
 		}
 	}
+	
+	
+	// for American Heritage Dictionary
+	function lookupAmericanHeritage(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("https://www.ahdictionary.com/word/search.html?q="+keyword, keyword);
+		}
+	}
+	
+	// for Vocabulary.com
+	function lookupVocabularycom(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://www.vocabulary.com/dictionary/"+keyword, keyword);
+		}
+	}
+	
+	// for Webster's New World College Dictionary
+	function lookupWebsterNewWorld(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://www.yourdictionary.com/"+keyword, keyword);
+		}
+	}
+	
+	// for The Wordsmyth English Dictionary-Thesaurus
+	function lookupWordsmyth(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://www.wordsmyth.net/?ent="+keyword, keyword);
+		}
+	}
+	
+	// for Infoplease Dictionary
+	function lookupInfoplease(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://dictionary.infoplease.com/"+keyword, keyword);
+		}
+	}
+	
+	// for Oxford Dictionary American English
+	function lookupOxford(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://www.oxforddictionaries.com/us/definition/american_english/"+keyword, keyword);
+		}
+	}
+	
+	// for Wordnik
+	function lookupWordnik(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("https://www.wordnik.com/words/"+keyword, keyword);
+		}
+	}
+	
+	// for Online Etymology Dictionary
+	function lookupEtymology(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://www.etymonline.com/index.php?term="+keyword, keyword);
+		}
+	}
+	
+	// for UltraLingua English Dictionary
+	function lookupUltraLingua(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://www.ultralingua.com/onlinedictionary/dictionary#src_lang=English&dest_lang=English&query="+keyword, keyword);
+		}
+	}
+	
+	// for Online Plain Text English Dictionary
+	function lookupOnlinePlain(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://www.onelook.com/?other=web1913&w="+keyword, keyword);
+		}
+	}
+	
+	// for The Free Dictionary.Org
+	function lookupFreeDictOrg(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://www.freedictionary.org/?Query="+keyword, keyword);
+		}
+	}
+	
+	// for AllWords.com Multi-Lingual Dictionary
+	function lookupAllWords(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://www.allwords.com/query.php?SearchType=3&Keyword="+keyword, keyword);
+		}
+	}
+	
+	// for Princeton WordNet
+	function lookupWordNet(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://wordnetweb.princeton.edu/perl/webwn?s="+keyword, keyword);
+		}
+	}
+	
+	// for Cambridge American Dictionary
+	function lookupCambridgeAmer(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://dictionary.cambridge.org/search/american-english/?q="+keyword, keyword);
+		}
+	}
+	
+	// for LookWAYup Translating Dictionary/Thesaurus
+	function lookupLookwayup(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://lookwayup.com/lwu.exe/lwu/d?s=f&w="+keyword, keyword);
+		}
+	}
+	
+	// for Mnemonic Dictionary
+	function lookupMnemonic(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://www.mnemonicdictionary.com/word/"+keyword, keyword);
+		}
+	}
+	
 	// shows the popup with selectd dictionary URL.
 	// Inject style and scripts.
 	function showPopup(url, keyword) {

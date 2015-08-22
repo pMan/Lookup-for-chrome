@@ -143,6 +143,86 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 			title: "Macmillan Dictionary - American",
 			url: "http://www.macmillandictionary.com/dictionary/american/"
 		},
+		{ // 27
+			func: "AmericanHeritage",
+			title: "American Heritage Dictionary",
+			url: "https://www.ahdictionary.com/word/search.html?q="
+		},
+		{ // 28
+			func: "Vocabularycom",
+			title: "Vocabulary.com",
+			url: "http://www.vocabulary.com/dictionary/"
+		},
+		{ // 29
+			func: "WebsterNewWorld",
+			title: "Websters New World College Dictionary",
+			url: "http://www.yourdictionary.com/"
+		},
+		{ // 30
+			func: "Wordsmyth",
+			title: "The Wordsmyth English Dictionary-Thesaurus",
+			url: "http://www.wordsmyth.net/?ent="
+		},
+		{ // 31
+			func: "Infoplease",
+			title: "Infoplease Dictionary",
+			url: "http://dictionary.infoplease.com/"
+		},
+		{ // 32
+			func: "Oxford",
+			title: "Oxford Dictionary American English",
+			url: "http://www.oxforddictionaries.com/us/definition/american_english/"
+		},
+		{ // 33
+			func: "Wordnik",
+			title: "Wordnik",
+			url: "https://www.wordnik.com/words/"
+		},
+		{ // 34
+			func: "Etymology",
+			title: "Online Etymology Dictionary",
+			url: "http://www.etymonline.com/index.php?term="
+		},
+		{ // 35
+			func: "UltraLingua",
+			title: "UltraLingua English Dictionary",
+			url: "http://www.ultralingua.com/onlinedictionary/dictionary#src_lang=English&dest_lang=English&query="
+		},
+		{ // 36
+			func: "OnlinePlain",
+			title: "Online Plain Text English Dictionary",
+			url: "http://www.onelook.com/?other=web1913&w="
+		},
+		{ // 37
+			func: "FreeDictOrg",
+			title: "The Free Dictionary.Org",
+			url: "http://www.freedictionary.org/?Query="
+		},
+		{ // 38
+			func: "AllWords",
+			title: "AllWords.com Multi-Lingual Dictionary",
+			url: "http://www.allwords.com/query.php?SearchType=3&Keyword="
+		},
+		{ // 39
+			func: "WordNet",
+			title: "Princeton WordNet",
+			url: "http://wordnetweb.princeton.edu/perl/webwn?s="
+		},
+		{ // 40
+			func: "CambridgeAmer",
+			title: "Cambridge American Dictionary",
+			url: "http://dictionary.cambridge.org/search/american-english/?q="
+		},
+		{ // 41
+			func: "Lookwayup",
+			title: "LookWAYup Translating Dictionary/Thesaurus",
+			url: "http://lookwayup.com/lwu.exe/lwu/d?s=f&w="
+		},
+		{ // 42
+			func: "Mnemonic",
+			title: "Mnemonic Dictionary",
+			url: "http://www.mnemonicdictionary.com/word/"
+		},
 	];
 
 	// function called when save button is pressed, to
