@@ -67,39 +67,47 @@ $('document').ready(function($) {
 	
 	// tabbing
 	$('a[name=dictionaries]').click(function(){
+		hideAll();
 		$('.dictionaries').show();
 		$('a[name=dictionaries]').attr('class', 'active');
-		
-		$('.prefs').hide();
-		$('.contribute').hide();
-		$('a[name=prefs]').removeAttr('class');
-		$('a[name=contribute]').removeAttr('class');
 		
 		$('.lookup-tab-save').show();
 	});
 	
 	$('a[name=prefs]').click(function(){
-		$('.dictionaries').hide();
+		hideAll();
 		$('a[name=prefs]').attr('class', 'active');
-		
 		$('.prefs').show();
-		$('.contribute').hide();
-		$('a[name=dictionaries]').removeAttr('class');
-		$('a[name=contribute]').removeAttr('class');
 		
 		$('.lookup-tab-save').show();
 	});
 	
 	$('a[name=contribute]').click(function(){
-		$('.dictionaries').hide();
+		hideAll();
 		$('a[name=contribute]').attr('class', 'active');
-		
-		$('.prefs').hide();
 		$('.contribute').show();
-		$('a[name=dictionaries]').removeAttr('class');
-		$('a[name=prefs]').removeAttr('class');
 		
 		$('.lookup-tab-save').hide();
 	});
+	
+	$('a[name=howtouse]').click(function(){
+		hideAll();
+		$('a[name=howtouse]').attr('class', 'active');
+		$('.howtouse').show();
+		
+		$('.lookup-tab-save').hide();
+	});
+	
+	function hideAll() {
+		$('.dictionaries').hide();
+		$('.prefs').hide();
+		$('.contribute').hide();
+		$('.howtouse').hide();
+		
+		$('a[name=dictionaries]').removeAttr('class');
+		$('a[name=prefs]').removeAttr('class');
+		$('a[name=contribute]').removeAttr('class');
+		$('a[name=howtouse]').removeAttr('class');
+	}
 	
 });
