@@ -82,3 +82,6 @@
 	- replaced all website permission with the dictionary sites in manifest.json
 1.4
 	- added chrome commands Ctrl+Shift+L to lookup
+1.5
+	- added  16 new dictionaries
+	- added title to the popup

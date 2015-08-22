@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Lookup Definitions Online",
-    "version": "1.4",
+    "version": "1.5",
     "background": {
         "scripts": [
 			"/scripts/jquery.min.js",
@@ -34,7 +34,7 @@
               "default": "Ctrl+Shift+L",
               "mac": "Command+Shift+L"
             },
-            "description": "Toggle feature foo"
+            "description": "Lookup short cut"
           }
 	}
 }
