@@ -40,10 +40,20 @@ text-align: right;
 #ldo_popup > #dics_listbox {
 	background-color: #ffffff;
 	border: 1px solid #000000;
+	color: #464646;
 	height: 23px;
 	width: auto;
 	right: 30px;
 	border-radius: 0 0 0 4px;
 	padding: 2px 4px 1px 4px;
 	top: -1px;
+}
+#ldo_popup > #__title_lookup {
+	position: absolute;
+	top: 2px;
+	width: 80%;
+	text-align: center;
+	font-family: times new roman;
+	color: #464646;
+	text-decoration: underline;
 }
