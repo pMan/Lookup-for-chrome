@@ -208,6 +208,14 @@
 			showPopup("http://www.collinsdictionary.com/dictionary/english-french/"+keyword, keyword);
 		}
 	}
+	
+	// for Collins French English Dictionary
+	function lookupCollinsFrenchEngDict(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://www.collinsdictionary.com/dictionary/french-english/"+keyword, keyword);
+		}
+	}
 
 	// for Collins German Dictionary
 	function lookupCollinsGermanDict(info, tab) {
@@ -216,6 +224,7 @@
 			showPopup("http://www.collinsdictionary.com/dictionary/english-german/"+keyword, keyword);
 		}
 	}
+	
 	// for Collins Spanish Dictionary
 	function lookupCollinsSpanishDict(info, tab) {
 		var keyword = validateString(info.selectionText);
@@ -223,6 +232,7 @@
 			showPopup("http://www.collinsdictionary.com/dictionary/english-spanish/"+keyword, keyword);
 		}
 	}
+	
 	// for Collins Italian Dictionary
 	function lookupCollinsItalianDict(info, tab) {
 		var keyword = validateString(info.selectionText);
@@ -238,7 +248,31 @@
 			showPopup("http://www.linguee.es/espanol-ingles/search?query="+keyword, keyword);
 		}
 	}
-
+	
+	// for linguee Japanese Dictionary
+	function lookupLingueeEnglishJapaneseDict(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://www.linguee.com/english-japanese/translation/"+keyword+".html", keyword);
+		}
+	}
+	
+	// for linguee Spanish Dictionary
+	function lookupLingueeEnglishSpanishDict(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://www.linguee.com/english-spanish/translation/"+keyword+".html", keyword);
+		}
+	}
+	
+	// for linguee French Dictionary
+	function lookupLingueeEnglishFrenchDict(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://www.linguee.com/english-french/translation/"+keyword+".html", keyword);
+		}
+	}
+	
     // for Merriam Webster Learner's Dictionary
 	function lookupMerriamWebsterL(info, tab) {
 		var keyword = validateString(info.selectionText);

@@ -85,3 +85,5 @@
 1.5
 	- added  16 new dictionaries
 	- added title to the popup
+1.5.1
+	- added 3 more dictionaries as requested by users

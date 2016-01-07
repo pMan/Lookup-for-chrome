@@ -119,9 +119,9 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 			url: "http://www.collinsdictionary.com/dictionary/english-italian/"
 		},
 		{ // 22
-			func: "LingueeDict",
-			title: "Linguee Dictionary",
-			url: "http://www.linguee.es/espanol-ingles/search?query="
+			func: "LingueeEnglishSpanishDict",
+			title: "Linguee English-Spanish Dictionary",
+			url: "http://www.linguee.com/english-spanish/search?query="
 		},
 		{ // 23
 			func: "MerriamWebsterL",
@@ -223,6 +223,21 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 			title: "Mnemonic Dictionary",
 			url: "http://www.mnemonicdictionary.com/word/"
 		},
+		{ // 43
+			func: "CollinsFrenchEngDict",
+			title: "Collins French-English Dictionary",
+			url: "http://www.collinsdictionary.com/dictionary/french-english"
+		},
+		{ // 44
+			func: "LingueeEnglishJapaneseDict",
+			title: "Linguee English-Japanese Dictionary",
+			url: "http://www.linguee.com/english-japanese/search?query="
+		},
+		{ // 45
+			func: "LingueeEnglishFrenchDict",
+			title: "Linguee English-French Dictionary",
+			url: "http://www.linguee.com/english-french/search?query="
+		}
 	];
 
 	// function called when save button is pressed, to
