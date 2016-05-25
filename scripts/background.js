@@ -240,6 +240,22 @@
 			showPopup("http://www.collinsdictionary.com/dictionary/english-italian/"+keyword, keyword);
 		}
 	}
+
+	// for Collins Chinese Dictionary
+	function lookupCollinsChineseDict(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://www.collinsdictionary.com/dictionary/english-chinese/"+keyword, keyword);
+		}
+	}
+
+	// for Collins English-learnerDictionary
+	function lookupCollinsEnglishLearnerDict(info, tab) {
+		var keyword = validateString(info.selectionText);
+		if (keyword != false) {
+			showPopup("http://www.collinsdictionary.com/dictionary/english-cobuild-learners/"+keyword, keyword);
+		}
+	}
 	
 	// for linguee Dictionary
 	function lookupLingueeDict(info, tab) {
