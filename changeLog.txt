@@ -87,3 +87,5 @@
 	- added title to the popup
 1.5.1
 	- added 3 more dictionaries as requested by users
+1.5.2
+	- fixed issues with SAME_ORIGIN policy

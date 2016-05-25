@@ -125,7 +125,7 @@
 	function lookupOALD(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			showPopup("http://www.oxfordlearnersdictionaries.com/search/english/direct/?q="+keyword, keyword);
+			openTab("http://www.oxfordlearnersdictionaries.com/search/english/direct/?q="+keyword);
 		}
 	}
 
@@ -133,7 +133,7 @@
 	function lookupOALDAMER(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			showPopup("http://www.oxfordlearnersdictionaries.com/search/american_english/direct/?q="+keyword, keyword);
+			openTab("http://www.oxfordlearnersdictionaries.com/search/american_english/direct/?q="+keyword, keyword);
 		}
 	}
 	
@@ -157,7 +157,7 @@
 	function lookupMacmillanDic(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			showPopup("http://www.macmillandictionary.com/dictionary/british/"+keyword, keyword);
+			openTab("http://www.macmillandictionary.com/dictionary/british/"+keyword);
 		}
 	}
 	
@@ -181,7 +181,7 @@
 	function lookupReversoDict(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			showPopup("http://dictionary.reverso.net/english-cobuild/"+keyword, keyword);
+			openTab("http://dictionary.reverso.net/english-cobuild/"+keyword);
 		}
 	}
 	
@@ -189,7 +189,7 @@
 	function lookupCollinsEnglishDict(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			showPopup("http://www.collinsdictionary.com/dictionary/english/"+keyword, keyword);
+			openTab("http://www.collinsdictionary.com/dictionary/english/"+keyword);
 		}
 	}
 
@@ -197,7 +197,7 @@
 	function lookupCollinsThesaurus(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			showPopup("http://www.collinsdictionary.com/dictionary/english-thesaurus/"+keyword, keyword);
+			openTab("http://www.collinsdictionary.com/dictionary/english-thesaurus/"+keyword);
 		}
 	}
 	
@@ -205,7 +205,7 @@
 	function lookupCollinsFrenchDict(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			showPopup("http://www.collinsdictionary.com/dictionary/english-french/"+keyword, keyword);
+			openTab("http://www.collinsdictionary.com/dictionary/english-french/"+keyword);
 		}
 	}
 	
@@ -221,7 +221,7 @@
 	function lookupCollinsGermanDict(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			showPopup("http://www.collinsdictionary.com/dictionary/english-german/"+keyword, keyword);
+			openTab("http://www.collinsdictionary.com/dictionary/english-german/"+keyword);
 		}
 	}
 	
@@ -229,7 +229,7 @@
 	function lookupCollinsSpanishDict(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			showPopup("http://www.collinsdictionary.com/dictionary/english-spanish/"+keyword, keyword);
+			openTab("http://www.collinsdictionary.com/dictionary/english-spanish/"+keyword);
 		}
 	}
 	
@@ -237,7 +237,7 @@
 	function lookupCollinsItalianDict(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			showPopup("http://www.collinsdictionary.com/dictionary/english-italian/"+keyword, keyword);
+			openTab("http://www.collinsdictionary.com/dictionary/english-italian/"+keyword);
 		}
 	}
 	
@@ -285,7 +285,7 @@
 	function lookupCollinsCobuildDict(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			showPopup("http://www.collinsdictionary.com/dictionary/english-cobuild-learners/"+keyword, keyword);
+			openTab("http://www.collinsdictionary.com/dictionary/english-cobuild-learners/"+keyword);
 		}
 	}
 	
@@ -293,7 +293,7 @@
 	function lookupMacmillanDicAmer(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			showPopup("http://www.macmillandictionary.com/dictionary/american/"+keyword, keyword);
+			openTab("http://www.macmillandictionary.com/dictionary/american/"+keyword);
 		}
 	}
 	
@@ -342,7 +342,7 @@
 	function lookupOxford(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			showPopup("http://www.oxforddictionaries.com/us/definition/american_english/"+keyword, keyword);
+			openTab("http://www.oxforddictionaries.com/us/definition/american_english/"+keyword);
 		}
 	}
 	

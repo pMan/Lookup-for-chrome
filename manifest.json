@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Lookup Definitions Online",
-    "version": "1.5.1",
+    "version": "1.5.2",
     "background": {
         "scripts": [
 			"/scripts/jquery.min.js",

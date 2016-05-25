@@ -291,7 +291,7 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 			var dics = enabledDics.split(','); // private
 		} else {
 			// for the first time, after installation
-			var dics = [0,1,2,3,4,5,6,7,8,9,11,12,13,15,16,17,18,19,20,21,22,23,24,26];
+			var dics = [0,2,3,5,11,22,27,28,34,37,40,45];
 		}
 		if (flag == "menu") {
 			var retVal = [];
