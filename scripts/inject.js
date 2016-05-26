@@ -6,6 +6,10 @@ var LDO = {
 		var iframe = document.createElement("iframe");
 		iframe.setAttribute("id", "ldo_iframe");
 
+		// these dics cannot be shown in popup
+		var sameOriginDics = ["Definition", "UrbanDict", "OALD", "OALDAMER", "MacmillanDic", "ReversoDict", "CollinsEnglishDict",
+				"CollinsThesaurus", "CollinsFrenchDict", "CollinsSpanishDict", "CollinsItalianDict", "CollinsCobuildDict",
+				"CollinsGermanDict", "MacmillanDicAmer", "Oxford"];
 		var iframeWrapper = document.getElementById("ldo_popup");
 		
 		// setup iframe container. If undefined, create one. Empty existing one, otherwise
@@ -54,10 +58,10 @@ var LDO = {
 
 		// add all dictionaries which are enabled by user.
 		for (var i=0; i < dics.length; i++) {
-			if ( dics[i].func == "UrbanDict" || dics[i].func == "Definition" || 
-				dics[i].func == "Infoplease" || dics[i].func == "Etymology" || dics[i].func == "" ) {
+			if (sameOriginDics.indexOf(dics[i].func) > -1) {
 				continue;
 			}
+			
 			var ov = document.createElement("option");
 			ov.value = dics[i].url + kwd;
 			ov.text = dics[i].title;
