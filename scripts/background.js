@@ -242,18 +242,18 @@
 	}
 
 	// for Collins Chinese Dictionary
-	function lookupCollinsChineseDict(info, tab) {
+	function lookupCollinsEnglishChineseDict(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			showPopup("http://www.collinsdictionary.com/dictionary/english-chinese/"+keyword, keyword);
+			openTab("http://www.collinsdictionary.com/dictionary/english-chinese/"+keyword);
 		}
 	}
 
 	// for Collins English-learnerDictionary
-	function lookupCollinsEnglishLearnerDict(info, tab) {
+	function lookupCollinsEnglishForLearnersDict(info, tab) {
 		var keyword = validateString(info.selectionText);
 		if (keyword != false) {
-			showPopup("http://www.collinsdictionary.com/dictionary/english-cobuild-learners/"+keyword, keyword);
+			openTab("http://www.collinsdictionary.com/dictionary/english-cobuild-learners/"+keyword);
 		}
 	}
 	
