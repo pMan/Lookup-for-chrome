@@ -91,3 +91,5 @@
 	- fixed issues with SAME_ORIGIN policy
 1.5.3
 	- completed 1.5.2
+1.5.4
+	- merged @wjn740’s changes (added two dicts)

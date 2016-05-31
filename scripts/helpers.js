@@ -237,7 +237,7 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 			func: "LingueeEnglishFrenchDict",
 			title: "Linguee English-French Dictionary",
 			url: "http://www.linguee.com/english-french/search?query="
-		}
+		},
 		{ // 46
 			func: "CollinsEnglishChineseDict",
 			title: "Collins English-Chinese Dictionary",
@@ -247,7 +247,7 @@ var msg = '<span></span>'; // if any, once 'Save' clicked
 			func: "CollinsEnglishForLearnersDict",
 			title: "Collins English For Learners Dictionary",
 			url: "http://www.collinsdictionary.com/dictionary/english-cobuild-learners"
-		},
+		}
 	];
 
 	// function called when save button is pressed, to
