@@ -1,59 +1,59 @@
-#ldo_popup {
+#__popup_lookup {
 	background-color: #ffffff;
 	border: 5px solid #000;
 	border-radius: 8px;
 	box-shadow: 0 0 44px;
-	padding: 10px 4px;
+	padding-bottom: 24px;
 	position:fixed;
-	margin: 0;
+	width: 80%;
+	z-index: 121212;
 }
-#ldo_popup > #ldo_iframe {
-	background-color: white;
-	border: none;
-	display: block;
+#__iframe_wrapper__lookup > #__iframe_lookup {
+	width: 100%;
 	height: 100%;
-	margin: 2px auto;
-	width: 99%;
+	border: none;
 }
-#ldo_popup > #__close_lookup, #ldo_popup > #dics_listbox {
-	position: absolute;
-	font-family: Arial;
-	font-size: 14px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: normal;
-	line-height: 14px;
-	margin: 0;
-	top: 0px;
-	background: #000;
-}
-#ldo_popup > #__close_lookup {
+#__popup_lookup > div > #__close_lookup{
 	color: #fff;
-	cursor: pointer;
-	right: 0px;
-	width: 40px;
-text-align: right;
-	padding: 4px 8px 4px 10px;
-	border-radius: 0;
-	font-weight: bold;	
+    cursor: pointer;
+    right: 0px;
+    padding: 4px 8px 4px 10px;
+    font-weight: bold;
+	position: absolute;
+    font-family: Arial;
+    font-size: 14px;
+    line-height: 14px;
+    top: 0px;
+    background: #000;
 }
-#ldo_popup > #dics_listbox {
+#__popup_lookup #__dics_lookup {
 	background-color: #ffffff;
-	border: 1px solid #000000;
 	color: #464646;
-	height: 23px;
 	width: auto;
 	right: 30px;
-	border-radius: 0 0 0 4px;
-	padding: 2px 4px 1px 4px;
-	top: -1px;
+	float: right;
 }
-#ldo_popup > #__title_lookup {
-	position: absolute;
-	top: 2px;
-	width: 80%;
-	text-align: center;
-	font-family: times new roman;
-	color: #464646;
-	text-decoration: underline;
+#__popup_lookup #__dics_lookup > select {
+	right: 28px;
+    position: absolute;
+	padding: 0;
+    height: 22px;
+    width: 184px;
+}
+#__popup_lookup > div > #__title_lookup {
+	padding: 4px 10px;
+	cursor: move;
+}
+
+#__iframe_wrapper__lookup {
+	height: 100%;
+    margin-top: 24px;
+}
+
+#__header_lookup {
+	font-size: smaller;
+	height: 22px;
+    border-bottom: 1px solid lightgray;
+    position: absolute;
+    width: 100%;
 }

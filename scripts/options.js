@@ -1,113 +1,131 @@
-/**
-	Options.js file does the rendering of options popup page. (for manifest V2)
-	Please see readme.txt with this bundle.
-	author: Prasad Cholakkottil aka pMan
-**/
+import Helper from './helpers.js'
 
-$('document').ready(function($) {
-	$('#message').html('').show();
-	$('#container-dics').html('');
-	
-	// render all the options
-	$('#container-dics').append('<ul id="dics-list">');
-	var order = localStorage['order'];
-	if (order == undefined) { // if not reordered before
-		for (var i in dicts) {
-			title = dicts[i].title;
-			$('#dics-list').append('<li id="'+i+'" title="Click-n-drag to reorder"><input type="checkbox" name="all-dicts" id="cb'+i+'" value="'+(i)+'" />'+
-			'<label style="cursor:move;" for="cb'+i+'">'+title+'</label></li>');
-		}
-	} else { // user had reordered before
-		var ds = order.split(',');
-		for( var i in dicts) {
-			title = dicts[ds[i]].title;
-			$('#dics-list').append('<li id="'+(ds[i])+'" title="Click-n-drag to reorder"><input type="checkbox" name="all-dicts" id="cb'+ds[i]+'" value="'+(ds[i])+'" />'+
-			'<label style="cursor:move;" for="cb'+(ds[i])+'">'+title+'</label></li>');
-		};
+let h = new Helper();
+
+chrome.storage.sync.get(["enabledDics"]).then((res) => {
+	var def = h.getDefDicts();
+	if (res.enabledDics != undefined) {
+		def = res.enabledDics;
 	}
-	
-	// restore enabled options
-	restoreOptions();
-
-	$('input[name=actionall]').click(function(){
-		if ($(this).is(':checked')) {
-			$('#container #container-dics input[type=checkbox]').each(function() {
-				$(this).attr('checked', true);
-			});
-		} else {
-			$('#container #container-dics input[type=checkbox]').each(function() {
-				$(this).attr('checked', false);
-			});
-		}
-	});
-
-	// Save action
-	$('.save').click(function(e) {
-		e.preventDefault();
-		$('#message').stop().fadeTo(1,1);
-		saveDicts();
-	});
-	
-	// Close action to hide the popup
-	$('a[name=close]').click(function(){
-		var e = jQuery.Event("keyup");
-		e.keyCode = 27;
-		$(document).trigger(e);
-		window.close();
-	});
-	
-	// Save order of dictionaries / drag-n-drop
-	$('#dics-list').sortable({
-		update: function(){
-			var newOrder = $('#dics-list').sortable('toArray');
-			localStorage["order"] = newOrder;
-		}
-	});
-	$('#dics-list').disableSelection();
-	
-	// tabbing
-	$('a[name=dictionaries]').click(function(){
-		hideAll();
-		$('.dictionaries').show();
-		$('a[name=dictionaries]').attr('class', 'active');
-		
-		$('.lookup-tab-save').show();
-	});
-	
-	$('a[name=prefs]').click(function(){
-		hideAll();
-		$('a[name=prefs]').attr('class', 'active');
-		$('.prefs').show();
-		
-		$('.lookup-tab-save').show();
-	});
-	
-	$('a[name=contribute]').click(function(){
-		hideAll();
-		$('a[name=contribute]').attr('class', 'active');
-		$('.contribute').show();
-		
-		$('.lookup-tab-save').hide();
-	});
-	
-	$('a[name=howtouse]').click(function(){
-		hideAll();
-		$('a[name=howtouse]').attr('class', 'active');
-		$('.howtouse').show();
-		
-		$('.lookup-tab-save').hide();
-	});
-	
-	function hideAll() {
-		$('.dictionaries').hide();
-		$('.prefs').hide();
-		$('.contribute').hide();
-		$('.howtouse').hide();
-		
-		$('a[name=dictionaries]').removeAttr('class');
-		$('a[name=prefs]').removeAttr('class');
-		$('a[name=contribute]').removeAttr('class');
-		$('a[name=howtouse]').removeAttr('class');
-	}
-	
+	updateUI(h.getDicts(), def);
 });
+
+function updateUI(dicts, enabledDicts) {
+	$('document').ready(function($) {
+		$('#message').html('').show();
+		$('#container-dics').html('');
+		
+		// render all the options
+		$('#container-dics').append('<ul id="dics-list">');
+		$('#container-dics ul').append('<li><i>loading...</i></li>');
+		
+		chrome.storage.sync.get(["order"]).then((res) => {
+			console.log(res['order']);
+			//var order = JSON.parse(res['order']);
+			var order = undefined;
+			if (res['order'] != undefined) {
+				order = JSON.parse(res['order']);
+				// add any new dict wihch was not in the previous save. Possibly after an update
+				for (var key in dicts)
+					if (!order.includes(key))
+						order.push(key);
+			}
+			
+			$('#dics-list').html('');
+			
+			if (order == undefined) { // if not reordered before
+				let i = 0;
+				for (var key in dicts) {
+					console.log('key: ' + key);
+					var dObj = dicts[key];
+					let title = dObj.title;
+					let checked = enabledDicts.includes(key) ? " checked" : "";
+					$('#dics-list').append('<li id="'+i+'" title="Click-n-drag to reorder"><input type="checkbox" name="all-dicts" id="cb'+i+'" value="'+key+'" ' + checked + '/>'+
+					'<label style="cursor:move;" for="cb'+i+'">'+title+'</label></li>');
+					i++;
+				}
+			} else { // user had reordered before
+				for( var i of order) {
+					console.log(i);
+					let title = dicts[i].title;
+					let key = dicts[i].func;
+					let checked = enabledDicts.includes(key) ? " checked" : "";
+					$('#dics-list').append('<li id="'+i+'" title="Click-n-drag to reorder"><input type="checkbox" name="all-dicts" id="cb'+i+'" value="'+key+'" ' + checked + '/>'+
+					'<label style="cursor:move;" for="cb'+i+'">'+title+'</label></li>');
+				};
+			}
+		});
+		
+		// enable/disable all
+		$('input[name=actionall]').click(function(){
+			if ($(this).is(':checked')) {
+				$('#container #container-dics input[type=checkbox]').each(function() {
+					$(this).attr('checked', true);
+				});
+			} else {
+				$('#container #container-dics input[type=checkbox]').each(function() {
+					$(this).attr('checked', false);
+				});
+			}
+		});
+
+		// Save action
+		$('.save').click(function(e) {
+			e.preventDefault();
+			$('#message').stop().fadeTo(1,1);
+			h.saveDicts();
+			let newOrder = []; //$('#dics-list').sortable('toArray');
+			$('#dics-list :input').map(function() {
+				newOrder.push($(this).val());
+			});
+			console.log(newOrder);
+			//localStorage["order"] = newOrder;
+			chrome.storage.sync.set({"order": JSON.stringify(newOrder)}).then((res) => {
+				console.log('sorted list saved');
+				chrome.runtime.reload();
+			});
+		});
+		
+		// Close action to hide the popup
+		$('a[name=close]').click(function(){
+			var e = jQuery.Event("keyup");
+			e.keyCode = 27;
+			$(document).trigger(e);
+			window.close();
+		});
+		
+		
+		// Save reorder of dictionaries / drag-n-drop
+		$('#dics-list').sortable({
+			update: function(){
+				var newOrder = $('#dics-list').sortable('toArray');
+				//localStorage["order"] = newOrder;
+				chrome.storage.sync.set({"order": newOrder}).then((res) => {
+					console.log('sorted list saved');
+				});
+			}
+		});
+		
+		$('#dics-list').disableSelection();
+		
+		// tab clicks
+		$('ul.tabs > li > a').click(function(){
+			hideAll();
+			let targetName = $(this).attr('name');
+			$('a[name=' + targetName + ']').attr('class', 'active');
+			$('.' + targetName).show();
+			
+			if ('dictionaries' == targetName)
+				$('.lookup-tab-save').show();
+			else
+				$('.lookup-tab-save').hide();
+		});
+		
+		// hide all tabs
+		function hideAll() {
+			$('.tab-content').hide();
+			$('ul > li > a').removeAttr('class');
+		}
+		
+	});
+}
