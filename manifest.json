@@ -1,40 +1,30 @@
 {
-    "manifest_version": 2,
+	"version": "2.0",
+	"manifest_version": 3,
     "name": "Lookup Definitions Online",
-    "version": “1.5.4”,
-    "background": {
-        "scripts": [
-			"/scripts/jquery.min.js",
-			"/scripts/helpers.js",
-			"/scripts/background.js",
-			"/scripts/command.js"
-			]
-    },
 	"description": "Lookup free online dictionary and thesaurus sites for definitions.",
 	"icons": {
-	  "48": "/images/dic_icon.png"
+	  "16": "/images/48_icon.png",
+	  "48": "/images/16_icon.png"
 	},
     "permissions": [
 		"contextMenus",
-		"tabs",
-		"<all_urls>"
+		"storage"
 	],
-	"minimum_chrome_version": "25",
-	"homepage_url": "http://www.karmicbee.com/projects/lookup-for-chrome/",
-	"options_page": "/html/options.html",
-	"update_url": "http://clients2.google.com/service/update2/crx",
-	"browser_action": {
-		"default_icon": "images/dic_icon.png",
-		"default_title": "Lookup extension",
-		"default_popup": "/html/options.html"
+	"host_permissions": ["<all_urls>"],
+	"background": {
+		"type": "module",
+		"service_worker": "scripts/menu.js"
 	},
-	"commands": {
-          "selectedText": {
-            "suggested_key": {
-              "default": "Ctrl+Shift+L",
-              "mac": "Command+Shift+L"
-            },
-            "description": "Lookup short cut"
-          }
+	"content_scripts": [
+		{
+			"matches": ["http://*/*", "https://*/*"],
+			"css": ["./html/inject.css"],
+			"js": ["./scripts/content-script.js"]
+		}
+	],
+	"options_ui": {
+		"page": "html/options.html",
+		"open_in_tab": true
 	}
 }

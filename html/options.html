@@ -2,75 +2,71 @@
 <html>
 <head>
 	<title>Customize lookup</title>
-	<link rel="stylesheet" href="/html/lookup.css" type="text/css">
+	<link rel="stylesheet" href="/html/options.css" type="text/css">
 	<script src="/scripts/jquery.min.js" type="text/javascript"></script>
-	<script src="/scripts/helpers.js" type="text/javascript"></script>
-	<script src="/scripts/options.js" type="text/javascript"></script>
+	<script src="/scripts/helpers.js" type="module"></script>
+	<script src="/scripts/options.js" type="module"></script>
 	<script src="/scripts/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
 </head>
 <body>
 	<div id="wrapper">
 	<ul class="tabs">
 		<li><a name="dictionaries" href="#" class="active">Dictionaries</a></li>
-		<li><a name="prefs" href="#">Preferences</a></li>
+		<!--li><a name="prefs" href="#">Preferences</a></li-->
 		<li><a name="howtouse" href="#">How to use</a></li>
-		<li><a name="contribute" href="#">Contribute</a></li>
+		<li><a name="faq" href="#">Known issues</a></li>
 	</ul>
 		<div id="container">
 			
 			<a href="#" name="close" title="Close" style="position:absolute;top:10px;right:10px;font-family:courier;">&nbsp;X&nbsp;</a>
 			
-			<div class="dictionaries">
-				<h4>Enable/Disable Dictionaries</h4>
-				<div><input type="checkbox" name="actionall"/>Select/Deselect All</div>
-				<div id="container-dics">please wait...</div>
+			<div class="dictionaries tab-content">
+				<div style="display: block;width: 480px;margin: auto;">
+					<h4>Enable/Disable Dictionaries</h4>
+					<div><input type="checkbox" name="actionall"/>Select/Deselect All</div>
+					<div id="container-dics">please wait...</div>
+				</div>
 			</div>
 			
-			<div class="prefs" style="display:none;">
-				<input type="checkbox" id="one-tab"><label for="one-tab">Use only one tab</label></input><br/>
-				<div class="lookup-tab"><i>if checked, lookup will open one tab and use it for further lookups.</i></div>
-			
-				<input type="checkbox" id="popup"></input><label for="popup">Use popup window <span class="lookup-tab" style="padding-left:4px;">(whenever possible, see <a href="http://karmicbee.com/projects/lookup-for-chrome/#known-issues" target="blank">known issues</a>)</label></span><br/>
-				<div class="lookup-tab"><i>if checked, Lookup will open a popup in the currently viewing tab.</i></div>
-
-				<input type="checkbox" id="enabled"><label for="enabled">Lookup is enabled</label></input><br/>
-				<div class="lookup-tab"><i>if unchecked, Lookup will be removed from context menu.</i></div>
-						
-			</div>
-			
-			<div class="howtouse" style="display:none;">
+			<div class="faq tab-content" style="display:none;">
 				<div class="lookup-tab" style="float:left;padding:10px 0 0 20px;">
-				No need to type in keywords. You just have to:
+				<ul>
+					<li>Some dictionaries do not show in popup</li>
+						<ul>
+							<li><i>
+								Whether a site can be loaded on a popup is controlled by the owner of the website. Dictionaries 
+								that open in a new tab have restrictions.
+							</i></li>
+						</ul>
+					</li>
+					<li>How can I add a dictionary of my choice?</li>
+						<ul>
+							<li><i>
+								Let me know in the extension reviews or on <a href="https://github.com/pMan/Lookup-for-chrome/discussions" 
+								target="_blank">github</a>. I will it add and update this extension in the chrome webstore.
+							</i></li>
+							<li><i>
+								The dictionaries in this extension are not added by the APIs provided by the websites. Some may not work.
+								However, I can add it for you, let me know.
+							</i></li>
+						</ul>
+					</li>
+				</ul>
+				<br/><br/>
+				</div>
+			</div>
+			
+			
+			<div class="howtouse tab-content" style="display:none;">
+				<div class="lookup-tab" style="float:left;padding:10px 0 0 20px;">
+				
 				<ul>
 					<li><i>Select (or highlight) a word on the page you are reading</i></li>
 					<li><i>Right-click on the selected text</i></li>
-					<li><i>Choose 'Lookup definitions online' from the menu</i></li>
+					<li><i>Select 'Lookup definitions online' from the menu</i></li>
 				</ul>
-				Or,
-				<ul>
-					<li><i>Select (or highlight) a word on the page you are reading</i></li>
-					<li><i>Press 'Ctrl + Shift + L' (or 'Cmd + Shift + L' on Mac)</i></li>
-				</ul><br/><br/>
-				</div>
-			</div>
-			
-			<div class="contribute" style="display:none;">
-				<div class="lookup-tab" style="float:left;padding:10px 0 0 20px;">
-					<i>Developing an extension will take a lot of time and a little effort.<br/>Has this extension helped you in a remarkable way? Consider a donation.</i><br/><br/>
-				</div>
-				
-				<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="width:100%;float:left;">
-					<input type="hidden" name="cmd" value="_s-xclick">
-					<input type="hidden" name="hosted_button_id" value="D6EYZPMMZNWCC">
-					<label class="lookup-tab">Choose an option: <select name="os0">
-						<option value="Thank you -">Thank you - $1.00 USD</option>
-						<option value="Loved it -">Loved it - $5.00 USD</option>
-						<option value="Great app -">Great App - $10.00 USD</option>
-					</select>
-					<input type="hidden" name="currency_code" value="USD" style="display:inline-block;">
-					<input type="submit" name="submit" alt="Donate" value="Donate" style="display:inline-block;">
-				</form>
 				<br/><br/>
+				</div>
 			</div>
 			
 			<div class="lookup-tab-save">
