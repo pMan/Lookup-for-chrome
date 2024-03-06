@@ -6,4 +6,4 @@ It doesn't have affiliates or partners to share anything with.
 
 The sole idea behind this extension is to make learning English or other languages easier.
 
-The source code of this extension is here in this repository `main` branch.
+The source code of this extension is here in this repository `master` branch.
