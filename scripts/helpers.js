@@ -126,7 +126,7 @@ export default class Helper {
 			"MerriamWebsterL":{
 				"func":"MerriamWebsterL",
 				"title":"Merriam Webster Learners Dictionary",
-				"url":"https://www.britannica.com/dictionary/"
+				"url":"https://www.merriam-webster.com/dictionary/"
 			},
 			"CollinsCobuildDict":{
 				"func":"CollinsCobuildDict",
