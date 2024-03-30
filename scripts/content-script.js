@@ -41,12 +41,7 @@ function dragElement(elmnt) {
 }
 
 function injectedFunction(info, dics) {
-	console.log("info");
-	console.log(info);
-	console.log(dics);
-	
 	const url = info.data.url + info.selectionText;
-	console.log(url);
 	
 	let sameOriginDics = ["FreeDict", "UrbanDict", "MerriamWebster", "Wiktionary", "Thesaurus", "MerriamWebsterT",
 		"Dictionary", "LingueeEnglishSpanishDict", "MerriamWebsterL", "AmericanHeritage", "Vocabularycom",
@@ -88,12 +83,10 @@ function injectedFunction(info, dics) {
 		header.appendChild(title);
 		header.appendChild(close);
 		
-		
 		var popup_wrapper = document.createElement("div");
 		popup_wrapper.setAttribute("id", "ldo_popup_wrapper");
 		
 		var iframeWrapper = document.createElement("div");
-		//iframeWrapper.setAttribute("name", "lookup_definitions_online_container");
 		iframeWrapper.setAttribute("id", "__iframe_wrapper__lookup");
 		iframeWrapper.setAttribute("title", "Click and drag to move");
 		
@@ -106,13 +99,10 @@ function injectedFunction(info, dics) {
 		var width = window.innerWidth * 0.8+ "px"; // width 80%
 
 		var style = "height:"+height+";left:"+left+";width:"+width+";top:"+top +"";
-			//";z-index:16777270;";
-//		iframeWrapper.setAttribute("style", style);
 	
 		var iframe = document.createElement("iframe");
 		iframe.setAttribute("id", "__iframe_lookup");
 		
-		//iframeWrapper.appendChild(header);
 		iframeWrapper.appendChild(iframe);
 
 		var body = document.createElement("div");
@@ -133,9 +123,6 @@ function injectedFunction(info, dics) {
 			body.parentElement.removeChild(body);
 		});
 		
-		//document.addEventListener("keydown", escHandler);
-		//iframe.contentWindow.document.addEventListener('keydown', escHandler);
-
 		dragElement(document.getElementById("__popup_lookup"));
 	}
 	

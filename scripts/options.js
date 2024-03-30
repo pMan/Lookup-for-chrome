@@ -20,8 +20,6 @@ function updateUI(dicts, enabledDicts) {
 		$('#container-dics ul').append('<li><i>loading...</i></li>');
 		
 		chrome.storage.sync.get(["order"]).then((res) => {
-			console.log(res['order']);
-			//var order = JSON.parse(res['order']);
 			var order = undefined;
 			if (res['order'] != undefined) {
 				order = JSON.parse(res['order']);
@@ -36,7 +34,6 @@ function updateUI(dicts, enabledDicts) {
 			if (order == undefined) { // if not reordered before
 				let i = 0;
 				for (var key in dicts) {
-					console.log('key: ' + key);
 					var dObj = dicts[key];
 					let title = dObj.title;
 					let checked = enabledDicts.includes(key) ? " checked" : "";
@@ -46,7 +43,6 @@ function updateUI(dicts, enabledDicts) {
 				}
 			} else { // user had reordered before
 				for( var i of order) {
-					console.log(i);
 					let title = dicts[i].title;
 					let key = dicts[i].func;
 					let checked = enabledDicts.includes(key) ? " checked" : "";
@@ -78,10 +74,7 @@ function updateUI(dicts, enabledDicts) {
 			$('#dics-list :input').map(function() {
 				newOrder.push($(this).val());
 			});
-			console.log(newOrder);
-			//localStorage["order"] = newOrder;
 			chrome.storage.sync.set({"order": JSON.stringify(newOrder)}).then((res) => {
-				console.log('sorted list saved');
 				chrome.runtime.reload();
 			});
 		});
@@ -99,7 +92,6 @@ function updateUI(dicts, enabledDicts) {
 		$('#dics-list').sortable({
 			update: function(){
 				var newOrder = $('#dics-list').sortable('toArray');
-				//localStorage["order"] = newOrder;
 				chrome.storage.sync.set({"order": newOrder}).then((res) => {
 					console.log('sorted list saved');
 				});

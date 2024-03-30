@@ -5,24 +5,26 @@ let dicts = h.getDicts();
 let contexts = ['selection'];
 let list = [];
 
-chrome.runtime.onInstalled.addListener(function () {
+function createContextMenu() {
 	
 	chrome.storage.sync.get(["enabledDics"], function (r) {
-		console.log("r");
-		console.log(r.enabledDics);
+		
+		chrome.contextMenus.removeAll(
+			function() { console.log('conext menu items removed') }
+		)
 		
 		let enabledDics = h.getDefDicts();
 		if (r.enabledDics != undefined) {
 			enabledDics = r.enabledDics;
 		}
-		
+
 		let dicts = h.getDicts();
 		for (var name of enabledDics) {
 			let dict = dicts[name];
 			if (dict == null)
 				continue;
 			list.push(dict);
-			console.log(dict);
+			
 			chrome.contextMenus.create({
 				title: dict.title,
 				contexts: ['selection'],
@@ -38,23 +40,19 @@ chrome.runtime.onInstalled.addListener(function () {
 			contexts: ['selection'],
 			id: 'configure',
 			title: "Options"
-		}, menuItemClicked());
+		}, menuItemClicked);
 	})
-});
-
-function menuItemClicked1() {
-	chrome.runtime.openOptionsPage();
 }
 
 function menuItemClicked(info, tab) {
 	if (info == undefined)
 		return;
-	console.log(info);
 	if (info["menuItemId"] == 'configure') {
 		chrome.runtime.openOptionsPage();
 		return;
 	}
 	info["data"] = dicts[info["menuItemId"]];
+	
 	chrome.scripting.executeScript({
 		args: [info, list],
 		target: { tabId: tab.id },
@@ -62,4 +60,5 @@ function menuItemClicked(info, tab) {
 	});
 }
 
+chrome.runtime.onInstalled.addListener(createContextMenu);
 chrome.contextMenus.onClicked.addListener(menuItemClicked);
