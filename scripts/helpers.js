@@ -252,7 +252,7 @@ export default class Helper {
 	}
 	
 	getDefDicts() {
-		return ["FreeDict", "Wiktionary", "Thesaurus", "Dictionary", "MerriamWebsterL", "Vocabularycom", "Wordsmyth", "Etymology"];
+		return ["FreeDict", "Wiktionary", "Thesaurus", "Dictionary", "MerriamWebsterL", "Vocabularycom", "Wordsmyth", "Etymology", "OnlinePlain"];
 	}
 	
 	getDicts() { return this.dicts; }

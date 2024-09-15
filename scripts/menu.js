@@ -3,14 +3,10 @@ import Helper from './helpers.js'
 let h = new Helper();
 let dicts = h.getDicts();
 let contexts = ['selection'];
-let list = [];
 
 chrome.runtime.onInstalled.addListener(function () {
 	
-	chrome.storage.sync.get(["enabledDics"], function (r) {
-		console.log("r");
-		console.log(r.enabledDics);
-		
+	chrome.storage.sync.get(["enabledDics"], function (r) {		
 		let enabledDics = h.getDefDicts();
 		if (r.enabledDics != undefined) {
 			enabledDics = r.enabledDics;
@@ -21,8 +17,6 @@ chrome.runtime.onInstalled.addListener(function () {
 			let dict = dicts[name];
 			if (dict == null)
 				continue;
-			list.push(dict);
-			console.log(dict);
 			chrome.contextMenus.create({
 				title: dict.title,
 				contexts: ['selection'],
@@ -35,21 +29,26 @@ chrome.runtime.onInstalled.addListener(function () {
 			type: "separator"
 		});
 		chrome.contextMenus.create({
-			contexts: ['selection'],
+			contexts: ['all'],
 			id: 'configure',
-			title: "Options"
+			title: "Lookup Preferences"
 		}, menuItemClicked());
 	})
 });
 
-function menuItemClicked1() {
-	chrome.runtime.openOptionsPage();
-}
-
 function menuItemClicked(info, tab) {
 	if (info == undefined)
 		return;
-	console.log(info);
+
+	let list = [];
+	let enabledDics = h.getDefDicts();
+	let dicts = h.getDicts();
+	for (var name of enabledDics) {
+		let dict = dicts[name];
+		if (dict == null)
+			continue;
+		list.push(dict);
+	}
 	if (info["menuItemId"] == 'configure') {
 		chrome.runtime.openOptionsPage();
 		return;

@@ -1,15 +1,16 @@
 {
-	"version": "2.0",
+	"version": "2.3",
 	"manifest_version": 3,
-    "name": "Lookup Definitions Online",
+	"name": "Lookup Definitions Online",
 	"description": "Lookup free online dictionary and thesaurus sites for definitions.",
 	"icons": {
-	  "16": "/images/48_icon.png",
-	  "48": "/images/16_icon.png"
+		"16": "/images/48_icon.png",
+		"48": "/images/16_icon.png"
 	},
-    "permissions": [
+	"permissions": [
 		"contextMenus",
-		"storage"
+		"storage",
+		"scripting"
 	],
 	"host_permissions": ["<all_urls>"],
 	"background": {
