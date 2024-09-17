@@ -1,60 +1,77 @@
-
+/**
+ * make an element draggable
+ * @param elmnt element to drag
+ */
 function dragElement(elmnt) {
-  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  if (document.getElementById(elmnt.id + "header")) {
-    /* if present, the header is where you move the DIV from:*/
-    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-  } else {
-    /* otherwise, move the DIV from anywhere inside the DIV:*/
-    elmnt.onmousedown = dragMouseDown;
-  }
+	var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+	if (document.getElementById(elmnt.id + "header")) {
+		/* if present, the header is where you move the DIV from:*/
+		document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+	} else {
+		/* otherwise, move the DIV from anywhere inside the DIV:*/
+		elmnt.onmousedown = dragMouseDown;
+	}
 
-  function dragMouseDown(e) {
-    e = e || window.event;
-    //e.preventDefault();
-    // get the mouse cursor position at startup:
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    document.onmouseup = closeDragElement;
-    // call a function whenever the cursor moves:
-    document.onmousemove = elementDrag;
-  }
+	function dragMouseDown(e) {
+		e = e || window.event;
+		//e.preventDefault();
+		// get the mouse cursor position at startup:
+		pos3 = e.clientX;
+		pos4 = e.clientY;
+		document.onmouseup = closeDragElement;
+		// call a function whenever the cursor moves:
+		document.onmousemove = elementDrag;
+	}
 
-  function elementDrag(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // calculate the new cursor position:
-    pos1 = pos3 - e.clientX;
-    pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    // set the element's new position:
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-  }
+	function elementDrag(e) {
+		e = e || window.event;
+		e.preventDefault();
+		// calculate the new cursor position:
+		pos1 = pos3 - e.clientX;
+		pos2 = pos4 - e.clientY;
+		pos3 = e.clientX;
+		pos4 = e.clientY;
+		// set the element's new position:
+		elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+		elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+	}
 
-  function closeDragElement() {
-    /* stop moving when mouse button is released:*/
-    document.onmouseup = null;
-    document.onmousemove = null;
-  }
+	function closeDragElement() {
+		/* stop moving when mouse button is released:*/
+		document.onmouseup = null;
+		document.onmousemove = null;
+	}
 }
 
+// handle esc key events
+function escHandler(e) {
+	let popup = document.getElementById("__popup_lookup");
+	if (popup != null && popup.style.display == 'block') {
+		popup.style.display = 'none';
+	}
+}
+
+/**
+ * executes when a context menu item is clicked
+ * @param {*} info 
+ * @param {*} dics 
+ * @returns 
+ */
 function injectedFunction(info, dics) {
 	const url = info.data.url + info.selectionText;
 	
+	// these are allowed in iframe
 	let sameOriginDics = ["FreeDict", "UrbanDict", "MerriamWebster", "Wiktionary", "Thesaurus", "MerriamWebsterT",
-		"Dictionary", "LingueeEnglishSpanishDict", "MerriamWebsterL", "AmericanHeritage", "Vocabularycom",
-		"WebsterNewWorld", "Wordsmyth", "Oxford", "Etymology", "UltraLingua", "OnlinePlain", "CollinsFrenchEngDict", 
+		"Dictionary", "LingueeEnglishSpanishDict", "MerriamWebsterL", "AmericanHeritage",
+		"WebsterNewWorld", "Wordsmyth", "Etymology", "UltraLingua", "OnlinePlain", "CollinsFrenchEngDict", 
 		"LingueeEnglishJapaneseDict"];
 	
 	if (sameOriginDics.indexOf(info.data.func) < 0) {
 		window.open(info.data.url);
 		return;
 	}
-		
 	var body = document.getElementById("__popup_lookup");
-	
+
 	if (body == null) {
 		// creating the close button
 		var close = document.createElement("div");
@@ -99,12 +116,6 @@ function injectedFunction(info, dics) {
 		var width = window.innerWidth * 0.8+ "px"; // width 80%
 
 		var style = "height:"+height+";left:"+left+";width:"+width+";top:"+top +"";
-	
-		var iframe = document.createElement("iframe");
-		iframe.setAttribute("id", "__iframe_lookup");
-		
-		iframeWrapper.appendChild(iframe);
-
 		var body = document.createElement("div");
 		body.setAttribute("id", "__popup_lookup");
 		body.setAttribute("style", style);
@@ -115,23 +126,19 @@ function injectedFunction(info, dics) {
 		document.body.appendChild(body);
 		
 		listbox.addEventListener("change", function() {
+			// setting iframe src won't work because of security policies, so recreate it
+			recreateIframe(iframeWrapper);
 			iframe.setAttribute("src", listbox.selectedOptions[0].value);
 		});
+
 		close.addEventListener("click", function() {
 			iframe.setAttribute("src", "about:blank");
 			body.style.display = "none";
 			body.parentElement.removeChild(body);
 		});
 		
+		document.addEventListener("keyup", escHandler);
 		dragElement(document.getElementById("__popup_lookup"));
-	}
-	
-	// handle esc keydown events
-	function escHandler() {
-		if (body.style.display == 'block') {
-			body.style.display = 'none';
-			//iframe.setAttribute("src", "about:blank");
-		}
 	}
 
 	// clear list and ad new options
@@ -149,14 +156,28 @@ function injectedFunction(info, dics) {
 		}
 		listbox.appendChild(ov);
 	}
-	
+
 	body.style.display = "block";
+	recreateIframe(document.getElementById("__iframe_wrapper__lookup"));
 	iframe = document.getElementById("__iframe_lookup");
 
-	var s = '<div style="margin: 40px auto; text-align: center; font-family: emoji; color: gray;">Loading...</div>';
+	let loadingHtml = '<html><body><div style="margin: 40px auto; text-align: center; font-family: emoji; color: gray;">Loading...</div></body></html>';
+	iframe.contentWindow.document.write(loadingHtml);
+	iframe.setAttribute("src", url);	
+}
+
+recreateIframe = function(iframeWrapper) {
+	for (const iframe of iframeWrapper.children) {
+		iframeWrapper.removeChild(iframe);
+	}
 	
-	iframe.contentWindow.document.write("<html><body>" + s + "</body></html>");
+	iframe = document.createElement("iframe");
+	iframe.setAttribute("id", "__iframe_lookup");
 	
-	iframe.setAttribute("src", url);
-	
+	try {
+		iframe.contentWindow.document.addEventListener('keyup', escHandler);
+	} catch(err) {
+		console.info(err);
+	}
+	iframeWrapper.appendChild(iframe);
 }

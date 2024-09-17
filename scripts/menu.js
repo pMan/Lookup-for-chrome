@@ -1,30 +1,23 @@
 import Helper from './helpers.js'
 
-let h = new Helper();
-let dicts = h.getDicts();
+let helper = new Helper();
+let dicts = helper.getDicts();
 let contexts = ['selection'];
-let list = [];
 
-function createContextMenu() {
-	
-	chrome.storage.sync.get(["enabledDics"], function (r) {
-		
-		chrome.contextMenus.removeAll(
-			function() { console.log('conext menu items removed') }
-		)
-		
-		let enabledDics = h.getDefDicts();
-		if (r.enabledDics != undefined) {
-			enabledDics = r.enabledDics;
+async function getDictsFromLocalStorage() {
+	return (await chrome.storage.sync.get("enabledDics"))["enabledDics"];
+}
+
+chrome.runtime.onInstalled.addListener(async function () {
+	getDictsFromLocalStorage().then(enabledDics => {
+		if (enabledDics == undefined) {
+			enabledDics = helper.getDefDicts();
 		}
-
-		let dicts = h.getDicts();
+		let dicts = helper.getDicts();
 		for (var name of enabledDics) {
 			let dict = dicts[name];
 			if (dict == null)
 				continue;
-			list.push(dict);
-			
 			chrome.contextMenus.create({
 				title: dict.title,
 				contexts: ['selection'],
@@ -37,12 +30,12 @@ function createContextMenu() {
 			type: "separator"
 		});
 		chrome.contextMenus.create({
-			contexts: ['selection'],
+			contexts: ['all'],
 			id: 'configure',
-			title: "Options"
-		}, menuItemClicked);
-	})
-}
+			title: "Lookup Preferences"
+		}, menuItemClicked());
+	});
+});
 
 function menuItemClicked(info, tab) {
 	if (info == undefined)
@@ -51,12 +44,23 @@ function menuItemClicked(info, tab) {
 		chrome.runtime.openOptionsPage();
 		return;
 	}
-	info["data"] = dicts[info["menuItemId"]];
-	
-	chrome.scripting.executeScript({
-		args: [info, list],
-		target: { tabId: tab.id },
-		func: (...args) => injectedFunction(...args)
+
+	getDictsFromLocalStorage().then(savedDicts => {
+		console.log(savedDicts);
+		if (savedDicts ==  undefined || savedDicts.length == 0) {
+			savedDicts = helper.getDefDicts();
+		}
+		let list = [];
+		for (var name of savedDicts) {
+			let dict = dicts[name];
+			list.push(dicts[name]);
+		}
+		info["data"] = dicts[info["menuItemId"]];
+		chrome.scripting.executeScript({
+			args: [info, list],
+			target: { tabId: tab.id },
+			func: (...args) => injectedFunction(...args)
+		});
 	});
 }
 

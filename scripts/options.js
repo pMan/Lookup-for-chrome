@@ -69,7 +69,8 @@ function updateUI(dicts, enabledDicts) {
 		$('.save').click(function(e) {
 			e.preventDefault();
 			$('#message').stop().fadeTo(1,1);
-			h.saveDicts();
+			if (!h.saveDicts())
+				return false;
 			let newOrder = []; //$('#dics-list').sortable('toArray');
 			$('#dics-list :input').map(function() {
 				newOrder.push($(this).val());

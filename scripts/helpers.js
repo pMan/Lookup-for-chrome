@@ -252,7 +252,7 @@ export default class Helper {
 	}
 	
 	getDefDicts() {
-		return ["FreeDict", "Wiktionary", "Thesaurus", "Dictionary", "MerriamWebsterL", "Vocabularycom", "Wordsmyth", "Etymology"];
+		return ["FreeDict", "Wiktionary", "Thesaurus", "Dictionary", "MerriamWebsterL", "Vocabularycom", "Wordsmyth", "Etymology", "OnlinePlain"];
 	}
 	
 	getDicts() { return this.dicts; }
@@ -278,6 +278,7 @@ export default class Helper {
 		
 		$('#message').html('Saved! ').attr('class','success').show();
 		$('#message > span').fadeOut(7000);
+		return true;
 	}
 	
 	// Return all enabled dictionaries.
