@@ -147,18 +147,7 @@ function injectedFunction(info, dics) {
 		});
 		
 		document.addEventListener("keyup", escHandler);
-		//iframe.contentWindow.document.addEventListener('keydown', escHandler);
-
 		dragElement(document.getElementById("__popup_lookup"));
-
-		/*
-		// close popup by Esc press listener
-		$(document).keyup(function(e) {
-			if (e.keyCode == 27) { // Esc
-				LDO.close();
-			}
-		});
-		*/
 	}
 
 	// clear list and ad new options
@@ -199,6 +188,5 @@ recreateIframe = function(iframeWrapper) {
 	} catch(err) {
 		console.info(err);
 	}
-	//iframeWrapper.appendChild(header);
 	iframeWrapper.appendChild(iframe);
 }
