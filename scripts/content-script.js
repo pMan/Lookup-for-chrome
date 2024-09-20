@@ -154,7 +154,7 @@ function injectedFunction(info, dics) {
 	listbox = document.getElementById("__dics_lookup_select");
 	listbox.options.length = 0;
 	for (var i=0; i < dics.length; i++) {
-		if (sameOriginDics.indexOf(dics[i].func) < 0)
+		if (dics[i] == null || sameOriginDics.indexOf(dics[i].func) < 0)
 			continue;
 		
 		let ov = document.createElement("option");

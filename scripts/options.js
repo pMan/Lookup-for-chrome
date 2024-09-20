@@ -1,13 +1,11 @@
-import Helper from './helpers.js'
-
-let h = new Helper();
+import { getDicts, getDefDicts, saveDicts } from './helpers.js'
 
 chrome.storage.sync.get(["enabledDics"]).then((res) => {
-	var def = h.getDefDicts();
+	var def = getDefDicts();
 	if (res.enabledDics != undefined) {
 		def = res.enabledDics;
 	}
-	updateUI(h.getDicts(), def);
+	updateUI(getDicts(), def);
 });
 
 function updateUI(dicts, enabledDicts) {
@@ -73,17 +71,16 @@ function updateUI(dicts, enabledDicts) {
 		$('.save').click(function(e) {
 			e.preventDefault();
 			$('#message').stop().fadeTo(1,1);
-			if (!h.saveDicts())
+			if (!saveDicts())
 				return false;
 			let newOrder = []; //$('#dics-list').sortable('toArray');
 			$('#dics-list :input').map(function() {
 				newOrder.push($(this).val());
 			});
 			console.log(newOrder);
-			//localStorage["order"] = newOrder;
 			chrome.storage.sync.set({"order": JSON.stringify(newOrder)}).then((res) => {
 				console.log('sorted list saved');
-				chrome.runtime.reload();
+				//console.log(res);
 			});
 		});
 		
