@@ -58,6 +58,10 @@ function escHandler(e) {
  * @returns 
  */
 function injectedFunction(info, dics) {
+	console.log("info");
+	console.log(info);
+	console.log(dics);
+	
 	const url = info.data.url + info.selectionText;
 	
 	// these are allowed in iframe
@@ -100,10 +104,12 @@ function injectedFunction(info, dics) {
 		header.appendChild(title);
 		header.appendChild(close);
 		
+		
 		var popup_wrapper = document.createElement("div");
 		popup_wrapper.setAttribute("id", "ldo_popup_wrapper");
 		
 		var iframeWrapper = document.createElement("div");
+		//iframeWrapper.setAttribute("name", "lookup_definitions_online_container");
 		iframeWrapper.setAttribute("id", "__iframe_wrapper__lookup");
 		iframeWrapper.setAttribute("title", "Click and drag to move");
 		
@@ -116,6 +122,9 @@ function injectedFunction(info, dics) {
 		var width = window.innerWidth * 0.8+ "px"; // width 80%
 
 		var style = "height:"+height+";left:"+left+";width:"+width+";top:"+top +"";
+			//";z-index:16777270;";
+			//iframeWrapper.setAttribute("style", style);
+	
 		var body = document.createElement("div");
 		body.setAttribute("id", "__popup_lookup");
 		body.setAttribute("style", style);
@@ -145,7 +154,7 @@ function injectedFunction(info, dics) {
 	listbox = document.getElementById("__dics_lookup_select");
 	listbox.options.length = 0;
 	for (var i=0; i < dics.length; i++) {
-		if (sameOriginDics.indexOf(dics[i].func) < 0)
+		if (dics[i] == null || sameOriginDics.indexOf(dics[i].func) < 0)
 			continue;
 		
 		let ov = document.createElement("option");

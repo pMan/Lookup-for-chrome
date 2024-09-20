@@ -1,13 +1,11 @@
-import Helper from './helpers.js'
-
-let h = new Helper();
+import { getDicts, getDefDicts, saveDicts } from './helpers.js'
 
 chrome.storage.sync.get(["enabledDics"]).then((res) => {
-	var def = h.getDefDicts();
+	var def = getDefDicts();
 	if (res.enabledDics != undefined) {
 		def = res.enabledDics;
 	}
-	updateUI(h.getDicts(), def);
+	updateUI(getDicts(), def);
 });
 
 function updateUI(dicts, enabledDicts) {
@@ -20,6 +18,8 @@ function updateUI(dicts, enabledDicts) {
 		$('#container-dics ul').append('<li><i>loading...</i></li>');
 		
 		chrome.storage.sync.get(["order"]).then((res) => {
+			console.log(res['order']);
+			//var order = JSON.parse(res['order']);
 			var order = undefined;
 			if (res['order'] != undefined) {
 				order = JSON.parse(res['order']);
@@ -34,6 +34,7 @@ function updateUI(dicts, enabledDicts) {
 			if (order == undefined) { // if not reordered before
 				let i = 0;
 				for (var key in dicts) {
+					console.log('key: ' + key);
 					var dObj = dicts[key];
 					let title = dObj.title;
 					let checked = enabledDicts.includes(key) ? " checked" : "";
@@ -43,6 +44,7 @@ function updateUI(dicts, enabledDicts) {
 				}
 			} else { // user had reordered before
 				for( var i of order) {
+					console.log(i);
 					let title = dicts[i].title;
 					let key = dicts[i].func;
 					let checked = enabledDicts.includes(key) ? " checked" : "";
@@ -69,14 +71,16 @@ function updateUI(dicts, enabledDicts) {
 		$('.save').click(function(e) {
 			e.preventDefault();
 			$('#message').stop().fadeTo(1,1);
-			if (!h.saveDicts())
+			if (!saveDicts())
 				return false;
 			let newOrder = []; //$('#dics-list').sortable('toArray');
 			$('#dics-list :input').map(function() {
 				newOrder.push($(this).val());
 			});
+			console.log(newOrder);
 			chrome.storage.sync.set({"order": JSON.stringify(newOrder)}).then((res) => {
-				chrome.runtime.reload();
+				console.log('sorted list saved');
+				//console.log(res);
 			});
 		});
 		
@@ -93,6 +97,7 @@ function updateUI(dicts, enabledDicts) {
 		$('#dics-list').sortable({
 			update: function(){
 				var newOrder = $('#dics-list').sortable('toArray');
+				//localStorage["order"] = newOrder;
 				chrome.storage.sync.set({"order": newOrder}).then((res) => {
 					console.log('sorted list saved');
 				});
